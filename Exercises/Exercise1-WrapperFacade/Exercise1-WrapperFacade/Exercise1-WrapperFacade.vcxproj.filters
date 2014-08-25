@@ -29,8 +29,8 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Exercise1-WrapperFacade.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="INET_Addr.hpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
