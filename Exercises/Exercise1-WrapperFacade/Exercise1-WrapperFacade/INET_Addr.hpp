@@ -22,12 +22,14 @@ public:
 		return addr_.sin_addr.s_addr; 
 	}
 	
-	sockaddr *addr () const
+	const sockaddr *addr () const
 	{ 
 		return reinterpret_cast <sockaddr *>(&addr_);
 	}
 
-	size_t size () const { return sizeof (addr_);
+	size_t size () const 
+	{ 
+		return sizeof (addr_);
 	}
 	// ...
 private:

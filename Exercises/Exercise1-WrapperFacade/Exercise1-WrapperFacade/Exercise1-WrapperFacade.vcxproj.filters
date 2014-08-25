@@ -32,5 +32,8 @@
     <ClCompile Include="INET_Addr.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="INET_Addr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
