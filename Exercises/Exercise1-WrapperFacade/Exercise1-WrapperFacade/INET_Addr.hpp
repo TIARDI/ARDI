@@ -1,7 +1,5 @@
-#include "stdafx.h"
-#include <iostream>
-#include <stddef.h>
 #include <stdint.h>
+#include <WINSOCK.h>
 
 class INET_Addr 
 {
