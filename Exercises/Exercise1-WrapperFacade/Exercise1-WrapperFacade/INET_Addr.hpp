@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <stdint.h>
 #include <WINSOCK.h>
 
@@ -9,4 +10,7 @@ public:
 	uint64_t get_ip_addr() const;
 	const sockaddr *addr() const;
 	size_t size() const;
+	
+private:
+	sockaddr_in addr_;
 };
