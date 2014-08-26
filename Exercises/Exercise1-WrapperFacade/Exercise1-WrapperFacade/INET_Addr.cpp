@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "INET_Addr.hpp"
 
-
-
 INET_Addr::INET_Addr (uint16_t port, uint64_t addr) 
 {
 	// Set up the address to become a server.

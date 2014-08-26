@@ -1,7 +1,12 @@
+#pragma once
 #include <stddef.h>
-
+#ifdef _WIN32
+#include <winsock.h>
+#else
 typedef int SOCKET;
-const int IN;
+#endif
+
+const int INVALID_VALUE_FOR_HANDLE = -1;
 
 class SOCK_Stream {
 public:

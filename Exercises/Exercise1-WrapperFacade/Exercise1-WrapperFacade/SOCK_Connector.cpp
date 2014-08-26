@@ -1,5 +1,7 @@
+#include "stdafx.h"
 #include "SOCK_Connector.hpp"
 #include "winsockHandling.hpp"
+
 
 SOCK_Connector::SOCK_Connector()
 {

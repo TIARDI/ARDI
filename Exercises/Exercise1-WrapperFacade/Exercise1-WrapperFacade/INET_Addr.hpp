@@ -1,6 +1,12 @@
+#pragma once
 #include "stdafx.h"
 #include <stdint.h>
-#include <WINSOCK.h>
+
+#ifdef _WIN32
+#include <winsock.h>
+#else
+//TODO: sockaddr and sockaddr_in
+#endif
 
 class INET_Addr
 {

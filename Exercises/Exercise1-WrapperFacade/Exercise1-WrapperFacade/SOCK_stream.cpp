@@ -3,7 +3,7 @@
 #include "winsockHandling.hpp"
 
 // Default and copy constructor.
-SOCK_Stream::SOCK_Stream () : SOCK_Stream(INVALID_HANDLE_VALUE)
+SOCK_Stream::SOCK_Stream() : SOCK_Stream(INVALID_VALUE_FOR_HANDLE)
 { }
 
 SOCK_Stream::SOCK_Stream (SOCKET h): handle_ (h) 
@@ -14,7 +14,7 @@ SOCK_Stream::SOCK_Stream (SOCKET h): handle_ (h)
 
 SOCK_Stream::~SOCK_Stream () 
 { 
-	close (handle_);
+	closesocket(handle_);
 	winsockHandling::close_winsock();
 }
 
@@ -31,15 +31,23 @@ SOCKET SOCK_Stream::get_handle () const
 // Regular I/O operations.
 
 size_t SOCK_Stream::recv(void *buf, size_t len, int flags)
-{}
+{
+	return NULL;
+}
 
 size_t SOCK_Stream::send(const char *buf, size_t len, int flags)
-{}
+{
+	return NULL;
+}
 
 // I/O operations for "short" receives and sends.
 size_t SOCK_Stream::recv_n(char *buf, size_t len, int flags)
-{}
+{
+	return NULL;
+}
 
 size_t SOCK_Stream::send_n(const char *buf, size_t len, int flags)
-{}
+{
+	return NULL;
+}
 // ... other methods omitted.
