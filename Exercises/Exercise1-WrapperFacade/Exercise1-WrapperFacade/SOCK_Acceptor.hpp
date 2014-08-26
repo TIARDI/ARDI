@@ -1,6 +1,7 @@
 #include <winsock.h>
 #include "INET_Addr.hpp"
 #include "SOCK_stream.h"
+#include "stdafx.h"
 
 class SOCK_Acceptor
 {

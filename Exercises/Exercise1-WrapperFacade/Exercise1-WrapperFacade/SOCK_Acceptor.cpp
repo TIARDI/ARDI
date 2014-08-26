@@ -10,11 +10,6 @@ SOCK_Acceptor::SOCK_Acceptor (const INET_Addr &addr)
 	listen (handle_, 5);
 };
 
-SOCK_Acceptor::~SOCK_Acceptor()
-{
-	closesocket(handle_);
-}
-
 // A second method to initialize a passivemode
 // acceptor socket, analogously to the constructor.
 void SOCK_Acceptor::open (const INET_Addr &sock_addr)
@@ -25,5 +20,5 @@ void SOCK_Acceptor::open (const INET_Addr &sock_addr)
 // Accept a connection and initialize the <stream>.
 void SOCK_Acceptor::accept (SOCK_Stream &s)
 {
-	s.set_handle (accept (handle_, 0, 0));
+	s.set_handle(::accept(handle_, 0, 0));
 }

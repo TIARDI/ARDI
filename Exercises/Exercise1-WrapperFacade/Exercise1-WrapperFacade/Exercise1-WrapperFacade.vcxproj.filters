@@ -30,6 +30,9 @@
     <ClInclude Include="SOCK_stream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SOCK_connector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +48,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SOCK_stream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_connector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggingServer_NoFacade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
