@@ -88,6 +88,7 @@
   <ItemGroup>
     <ClCompile Include="INET_Addr.cpp" />
     <ClCompile Include="INET_Addr.hpp" />
+    <ClCompile Include="LoggingServer_NoFacade.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_connector.cpp" />
     <ClCompile Include="SOCK_stream.cpp" />
