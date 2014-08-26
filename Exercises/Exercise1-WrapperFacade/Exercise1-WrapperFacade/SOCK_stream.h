@@ -6,7 +6,7 @@
 typedef int SOCKET;
 #endif
 
-extern const int INVALID_HANDLE_VALUE;
+extern const int INVALID_VALUE_FOR_HANDLE;
 
 class SOCK_Stream {
 public:
