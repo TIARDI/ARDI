@@ -56,10 +56,10 @@
     <ClCompile Include="SOCK_connector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="winsockHandling.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="winsockHandling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
