@@ -1,7 +1,10 @@
 #include "SOCK_Acceptor.hpp"
+#include "winsockHandling.hpp"
 
 SOCK_Acceptor::SOCK_Acceptor (const INET_Addr &addr)
 {
+	winsockHandling::init_winsock();
+
 	// Create a local endpoint of communication.
 	handle_ = socket (PF_INET, SOCK_STREAM, 0);
 	// Associate address with endpoint.

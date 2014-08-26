@@ -1,7 +1,9 @@
 #include "SOCK_Connector.hpp"
+#include "winsockHandling.hpp"
 
 SOCK_Connector::SOCK_Connector()
 {
+	winsockHandling::init_winsock();
 }
 
 void SOCK_Connector::connect(SOCK_Stream& server, INET_Addr& addr)
@@ -14,4 +16,5 @@ void SOCK_Connector::connect(SOCK_Stream& server, INET_Addr& addr)
 
 SOCK_Connector::~SOCK_Connector()
 {
+	winsockHandling::close_winsock();
 }

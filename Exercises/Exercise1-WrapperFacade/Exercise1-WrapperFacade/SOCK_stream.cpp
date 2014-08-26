@@ -1,17 +1,21 @@
 #include "stdafx.h"
 #include "SOCK_stream.h"
+#include "winsockHandling.hpp"
 
 // Default and copy constructor.
-SOCK_Stream::SOCK_Stream () : handle_ (INVALID_HANDLE_VALUE) 
+SOCK_Stream::SOCK_Stream () : SOCK_Stream(INVALID_HANDLE_VALUE)
 { }
 
 SOCK_Stream::SOCK_Stream (SOCKET h): handle_ (h) 
-{ }
+{
+	winsockHandling::init_winsock();
+}
 // Automatically close the handle on destruction.
 
 SOCK_Stream::~SOCK_Stream () 
 { 
-	close (handle_); 
+	close (handle_);
+	winsockHandling::close_winsock();
 }
 
 // Set/get the underlying SOCKET handle.
