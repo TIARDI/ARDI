@@ -8,6 +8,8 @@ public:
 	// Initialize a passive-mode acceptor socket.
 	SOCK_Acceptor (const INET_Addr &addr);
 
+	~SOCK_Acceptor();
+
 	// A second method to initialize a passivemode
 	// acceptor socket, analogously to the constructor.
 	void open (const INET_Addr &sock_addr);

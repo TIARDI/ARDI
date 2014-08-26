@@ -9,6 +9,12 @@ SOCK_Acceptor::SOCK_Acceptor (const INET_Addr &addr)
 	// Make endpoint listen for connections.
 	listen (handle_, 5);
 };
+
+SOCK_Acceptor::~SOCK_Acceptor()
+{
+	closesocket(handle_);
+}
+
 // A second method to initialize a passivemode
 // acceptor socket, analogously to the constructor.
 void SOCK_Acceptor::open (const INET_Addr &sock_addr)
