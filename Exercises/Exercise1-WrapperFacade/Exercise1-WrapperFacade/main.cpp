@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		std::cout << "Argument '" << argv[0] << "' not allowed. Closing..." << std::endl;
+		std::cout << "Arguments not accepted. Closing..." << std::endl;
 		return -1;
 	}
 
