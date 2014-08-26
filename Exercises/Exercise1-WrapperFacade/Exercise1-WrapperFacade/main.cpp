@@ -5,6 +5,10 @@
 #include "SOCK_Connector.hpp"
 #include "SOCK_stream.h"
 #include "INET_Addr.hpp"
+
+void RunClient();
+void RunServer();
+
 int main(int argc, char *argv[])
 {
 	if(argc != 1)
@@ -39,7 +43,6 @@ void RunClient()
 
 void RunServer()
 {
-
 	struct sockaddr_in sock_addr;
 	INET_Addr inet(2222,INADDR_ANY);
 	SOCK_Acceptor acceptor(inet);
