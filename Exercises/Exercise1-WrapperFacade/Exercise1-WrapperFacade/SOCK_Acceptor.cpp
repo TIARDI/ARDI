@@ -1,17 +1,32 @@
 #include "stdafx.h"
 #include "SOCK_Acceptor.hpp"
 #include "winsockHandling.hpp"
+#include <stdexcept>
 
 SOCK_Acceptor::SOCK_Acceptor (const INET_Address &addr)
 {
 	winsockHandling::init_winsock();
 
 	// Create a local endpoint of communication.
-	handle_ = socket (PF_INET, SOCK_STREAM, 0);
+	handle_ = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (handle_ == INVALID_SOCKET)
+	{
+		throw std::runtime_error("Socket() failed.");
+	}
+
 	// Associate address with endpoint.
-	bind (handle_, addr.addr (), addr.size());
+	auto ret = bind (handle_, addr.addr (), addr.size());
+	if (ret != 0)
+	{
+		throw std::runtime_error("Bind() failed.");
+	}
+	
 	// Make endpoint listen for connections.
-	listen (handle_, 5);
+	ret = listen (handle_, 5);
+	if (ret != 0)
+	{
+		throw std::runtime_error("Listen() failed.");
+	}
 };
 
 SOCK_Acceptor::~SOCK_Acceptor()

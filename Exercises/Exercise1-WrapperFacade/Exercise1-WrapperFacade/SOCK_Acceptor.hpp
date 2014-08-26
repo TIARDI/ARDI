@@ -2,7 +2,7 @@
 #include "INET_Address.hpp"
 #include "SOCK_stream.h"
 #ifdef _WIN32
-#include <winsock.h>
+#include <winsock2.h>
 #else
 // Unix SOCKET
 #endif
