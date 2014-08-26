@@ -1,7 +1,11 @@
-#include <winsock.h>
+#pragma once
 #include "INET_Addr.hpp"
 #include "SOCK_stream.h"
-#include "stdafx.h"
+#ifdef _WIN32
+#include <winsock.h>
+#else
+// Unix SOCKET
+#endif
 
 class SOCK_Acceptor
 {

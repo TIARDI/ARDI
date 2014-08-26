@@ -1,4 +1,5 @@
 #include "SOCK_Connector.hpp"
+#include "stdafx.h"
 
 SOCK_Connector::SOCK_Connector()
 {
