@@ -2,7 +2,7 @@
 #include "SOCK_Acceptor.hpp"
 #include "winsockHandling.hpp"
 
-SOCK_Acceptor::SOCK_Acceptor (const INET_Addr &addr)
+SOCK_Acceptor::SOCK_Acceptor (const INET_Address &addr)
 {
 	winsockHandling::init_winsock();
 
@@ -22,7 +22,7 @@ SOCK_Acceptor::~SOCK_Acceptor()
 
 // A second method to initialize a passivemode
 // acceptor socket, analogously to the constructor.
-void SOCK_Acceptor::open (const INET_Addr &sock_addr)
+void SOCK_Acceptor::open (const INET_Address &sock_addr)
 {
 	// Implement Code
 };

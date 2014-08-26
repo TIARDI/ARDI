@@ -52,6 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,6 +81,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="INET_Address.hpp" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_connector.hpp" />
     <ClInclude Include="SOCK_stream.h" />
@@ -88,8 +90,7 @@
     <ClInclude Include="winsockHandling.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="INET_Addr.cpp" />
-    <ClCompile Include="INET_Addr.hpp" />
+    <ClCompile Include="INET_Address.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_connector.cpp" />

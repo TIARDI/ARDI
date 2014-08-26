@@ -4,7 +4,7 @@
 #include "SOCK_Acceptor.hpp"
 #include "SOCK_Connector.hpp"
 #include "SOCK_stream.h"
-#include "INET_Addr.hpp"
+#include "INET_Address.hpp"
 
 void RunClient();
 void RunServer();
@@ -44,7 +44,7 @@ void RunClient()
 void RunServer()
 {
 	struct sockaddr_in sock_addr;
-	INET_Addr inet(2222,INADDR_ANY);
+	INET_Address inet(2222,INADDR_ANY);
 	SOCK_Acceptor acceptor(inet);
 	
 	SOCK_Stream stream;

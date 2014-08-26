@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "INET_Addr.hpp"
+#include "INET_Address.hpp"
 
-INET_Addr::INET_Addr (uint16_t port, uint64_t addr) 
+INET_Address::INET_Address (uint16_t port, uint64_t addr) 
 {
 	// Set up the address to become a server.
 	memset (&addr_, 0, sizeof addr_);
@@ -10,22 +10,22 @@ INET_Addr::INET_Addr (uint16_t port, uint64_t addr)
 	addr_.sin_addr.s_addr = htonl (addr);
 }
 
-uint16_t INET_Addr::get_port () const 
+uint16_t INET_Address::get_port () const 
 { 
 	return addr_.sin_port; 
 }
 
-uint64_t INET_Addr::get_ip_addr () const
+uint64_t INET_Address::get_ip_addr () const
 { 
 	return addr_.sin_addr.s_addr; 
 }
 
-const sockaddr *INET_Addr::addr() const
+const sockaddr *INET_Address::addr() const
 { 
 	return reinterpret_cast <const sockaddr *>(&addr_);
 }
 
-size_t INET_Addr::size() const 
+size_t INET_Address::size() const 
 { 
 	return sizeof (addr_);
 }

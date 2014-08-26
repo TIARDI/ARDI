@@ -8,10 +8,10 @@
 //TODO: sockaddr and sockaddr_in
 #endif
 
-class INET_Addr
+class INET_Address
 {
 public:
-	INET_Addr(uint16_t port, uint64_t addr);
+	INET_Address(uint16_t port, uint64_t addr);
 	uint16_t get_port() const ;
 	uint64_t get_ip_addr() const;
 	const sockaddr *addr() const;

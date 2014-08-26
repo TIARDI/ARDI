@@ -6,7 +6,6 @@
 #pragma once
 
 #include "targetver.h"
-#include "INET_Addr.hpp"
 
 #include <stdio.h>
 #include <tchar.h>

@@ -36,15 +36,12 @@
     <ClInclude Include="winsockHandling.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="INET_Address.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="INET_Addr.hpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="INET_Addr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SOCK_Acceptor.cpp">
@@ -60,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="winsockHandling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="INET_Address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
