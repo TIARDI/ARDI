@@ -35,7 +35,7 @@ void RunServer()
 		stream.recv(message, 100, 0);
 		std::cout << "Message: " << message << std::endl;
 
-		if (strncmp("exit", message, 4) == 0)
+		if (strncmp("exit", message, 4) == 0) //used with telnet as client for testing.
 		{
 			break;
 		}
