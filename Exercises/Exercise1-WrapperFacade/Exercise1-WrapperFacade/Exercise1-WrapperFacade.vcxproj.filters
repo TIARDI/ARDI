@@ -24,6 +24,12 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SOCK_Acceptor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -33,6 +39,12 @@
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="INET_Addr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Acceptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_stream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
