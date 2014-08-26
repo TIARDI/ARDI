@@ -11,7 +11,7 @@ SOCK_Stream::SOCK_Stream (SOCKET h): handle_ (h)
 
 SOCK_Stream::~SOCK_Stream () 
 { 
-	close (handle_); 
+	closesocket(handle_); 
 }
 
 // Set/get the underlying SOCKET handle.

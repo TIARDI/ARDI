@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "SOCK_Acceptor.hpp"
 
 SOCK_Acceptor::SOCK_Acceptor (const INET_Addr &addr)
