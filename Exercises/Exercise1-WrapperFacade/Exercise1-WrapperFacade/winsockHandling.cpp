@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <winsock.h>
 #include <iostream>
 #include "winsockHandling.hpp"
