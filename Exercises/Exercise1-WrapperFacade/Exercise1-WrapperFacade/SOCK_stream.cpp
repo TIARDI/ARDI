@@ -2,14 +2,17 @@
 #include "SOCK_stream.h"
 #include "winsockHandling.hpp"
 
-// Default and copy constructor.
-SOCK_Stream::SOCK_Stream() : SOCK_Stream(INVALID_VALUE_FOR_HANDLE)
-{ }
+SOCK_Stream::SOCK_Stream(SOCKET h) : handle_(h)
+{
+	
+}
 
-SOCK_Stream::SOCK_Stream (SOCKET h): handle_ (h) 
+// Default and copy constructor.
+SOCK_Stream::SOCK_Stream() : handle_(INVALID_VALUE_FOR_HANDLE)
 {
 	winsockHandling::init_winsock();
 }
+
 // Automatically close the handle on destruction.
 
 SOCK_Stream::~SOCK_Stream () 

@@ -10,8 +10,8 @@ const int INVALID_VALUE_FOR_HANDLE = -1;
 
 class SOCK_Stream {
 public:
-	SOCK_Stream();
 	SOCK_Stream(SOCKET h);
+	SOCK_Stream();	
 	~SOCK_Stream();
 	void set_handle(SOCKET h);
 	SOCKET get_handle() const;

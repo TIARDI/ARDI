@@ -22,7 +22,7 @@ uint64_t INET_Addr::get_ip_addr () const
 
 const sockaddr *INET_Addr::addr() const
 { 
-	return reinterpret_cast <sockaddr_in *>(&addr_);
+	return reinterpret_cast <const sockaddr *>(&addr_);
 }
 
 size_t INET_Addr::size() const 

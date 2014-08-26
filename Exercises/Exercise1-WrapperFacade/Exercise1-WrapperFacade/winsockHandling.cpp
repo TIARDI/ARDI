@@ -15,7 +15,7 @@ namespace winsockHandling
 
 			// MAKEWORD(1,1) for Winsock 1.1, MAKEWORD(2,0) for Winsock 2.0:
 
-			if (WSAStartup(MAKEWORD(1, 1), &wsaData) != 0)
+			if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)
 			{
 				std::cerr << "WSAStartup failed." << std::endl;
 				exit(1);
