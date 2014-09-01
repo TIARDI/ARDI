@@ -82,7 +82,7 @@
   <ItemGroup>
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
-    <ClInclude Include="Reactor.h" />
+    <ClInclude Include="Reactor.hpp" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_connector.hpp" />
     <ClInclude Include="SOCK_stream.h" />

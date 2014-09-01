@@ -48,7 +48,7 @@
     <ClInclude Include="Event_handler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Reactor.h">
+    <ClInclude Include="Reactor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
