@@ -32,7 +32,7 @@ void RunServer()
 		char message[100] = {0};
 
 		acceptor.accept(stream);
-		std::cout << "Server: Connection accepted." << std::endl;
+		std::cout << "Server: Connection accepted. IP: " << inet.get_ip_addr() << std::endl;
 		stream.recv(message, 100, 0);
 		std::cout << "Message: " << message << std::endl;
 
