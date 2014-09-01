@@ -1,31 +1,22 @@
 #include "stdafx.h"
-#include "Reactor.h"
-#include "Event_handler.hpp"
+#include "Reactor.hpp"
 
-#ifdef WIN32
-	#include <WinSock2.h>
-#else
-
-#endif
-
-typedef Reactor Reactor_Implementation;
-
-void Reactor::register_handler(Event_Handler *eh, Event_Type et)
+void Reactor::register_handler(Event_Handler *eh, Event_type et)
 {
 
 }
 
-void Reactor::register_handler(HANDLE h, Event_Handler *eh, Event_Type et) 
+void Reactor::register_handler(HANDLE h, Event_Handler *eh, Event_type et) 
 {
 
 }
 
-void Reactor::remove_handler(Event_Handler *eh, Event_Type et)
+void Reactor::remove_handler(Event_Handler *eh, Event_type et)
 {
 
 }
 
-void Reactor::remove_handler(HANDLE h, Event_Type et) const
+void Reactor::remove_handler(HANDLE h, Event_type et) const
 {
 
 }
