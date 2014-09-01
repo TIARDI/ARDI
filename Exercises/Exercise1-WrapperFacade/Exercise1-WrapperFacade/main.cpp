@@ -25,6 +25,7 @@ void RunServer()
 	INET_Address inet(2222,INADDR_ANY);
 	SOCK_Acceptor acceptor(inet);
 
+
 	while(true) 
 	{
 		SOCK_Stream stream;
@@ -45,18 +46,24 @@ void RunServer()
 int main(int argc, char *argv[])
 {
 	if (argc == 3 && argv[1][0] == 'c')
+	if(std::string(argv[1]).compare(std::string("c")) && argc == 3)
 	{
 		std::cout << "Running as client..." << std::endl;
 		RunClient(std::string(argv[2]));
 	}
 	else if (argc == 2 && argv[1][0] == 's')
+	else if(std::string(argv[1]).compare(std::string("s")))
 	{
 		std::cout << "Running as server..." << std::endl;
 		RunServer();
 	}
 	else
 	{
-		std::cout << "Arguments not accepted. Closing..." << std::endl;
+		std::cout << "Arguments not accepted. argc" << argc << ". Closing..." << std::endl;
+		for(int i = 0; i < argc; i++)
+		{
+			std::cout << argv[i] << "[" << i << "]" << std::endl;
+		}
 		return 0;
 	}
 
