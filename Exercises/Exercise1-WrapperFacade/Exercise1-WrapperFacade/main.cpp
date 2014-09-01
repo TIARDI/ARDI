@@ -46,13 +46,11 @@ void RunServer()
 int main(int argc, char *argv[])
 {
 	if (argc == 3 && argv[1][0] == 'c')
-	if(std::string(argv[1]).compare(std::string("c")) && argc == 3)
 	{
 		std::cout << "Running as client..." << std::endl;
 		RunClient(std::string(argv[2]));
 	}
 	else if (argc == 2 && argv[1][0] == 's')
-	else if(std::string(argv[1]).compare(std::string("s")))
 	{
 		std::cout << "Running as server..." << std::endl;
 		RunServer();
