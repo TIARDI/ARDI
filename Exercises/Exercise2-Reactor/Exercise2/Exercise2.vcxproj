@@ -83,12 +83,9 @@
     <ClInclude Include="Alarm_EventHandler.h" />
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
-<<<<<<< HEAD
     <ClInclude Include="Reactor.hpp" />
-=======
     <ClInclude Include="Log_EventHandler.h" />
     <ClInclude Include="PatientValue_EventHandler.h" />
->>>>>>> non virtual destructor in event handler base class. Also built so classes are in project
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_connector.hpp" />
     <ClInclude Include="SOCK_stream.h" />
@@ -100,12 +97,9 @@
     <ClCompile Include="Alarm_EventHandler.cpp" />
     <ClCompile Include="Exercise2.cpp" />
     <ClCompile Include="INET_Address.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="Reactor.cpp" />
-=======
     <ClCompile Include="Log_EventHandler.cpp" />
     <ClCompile Include="PatientValue_EventHandler.cpp" />
->>>>>>> non virtual destructor in event handler base class. Also built so classes are in project
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_connector.cpp" />
     <ClCompile Include="SOCK_stream.cpp" />
