@@ -16,5 +16,5 @@ public:
 	virtual void handle_event(HANDLE h, Event_type eType) = 0;
 	virtual HANDLE get_handle() const = 0;
 
-	virtual ~Event_Handler() = 0;
+	virtual ~Event_Handler(){};
 };

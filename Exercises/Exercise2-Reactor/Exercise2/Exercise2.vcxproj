@@ -56,6 +56,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -80,8 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Demux_Table.h" />
+    <ClInclude Include="Alarm_EventHandler.h" />
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
+    <ClInclude Include="Reactor.hpp" />
+    <ClInclude Include="Log_EventHandler.h" />
+    <ClInclude Include="PatientValue_EventHandler.h" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_connector.hpp" />
     <ClInclude Include="SOCK_stream.h" />
@@ -91,8 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demux_Table.cpp" />
+    <ClCompile Include="Alarm_EventHandler.cpp" />
     <ClCompile Include="Exercise2.cpp" />
     <ClCompile Include="INET_Address.cpp" />
+    <ClCompile Include="Reactor.cpp" />
+    <ClCompile Include="Log_EventHandler.cpp" />
+    <ClCompile Include="PatientValue_EventHandler.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_connector.cpp" />
     <ClCompile Include="SOCK_stream.cpp" />
