@@ -79,15 +79,25 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="INET_Address.hpp" />
+    <ClInclude Include="SOCK_Acceptor.hpp" />
+    <ClInclude Include="SOCK_connector.hpp" />
+    <ClInclude Include="SOCK_stream.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="winsockHandling.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exercise2.cpp" />
+    <ClCompile Include="INET_Address.cpp" />
+    <ClCompile Include="SOCK_Acceptor.cpp" />
+    <ClCompile Include="SOCK_connector.cpp" />
+    <ClCompile Include="SOCK_stream.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="winsockHandling.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
