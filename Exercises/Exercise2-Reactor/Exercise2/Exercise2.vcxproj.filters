@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Ex1_headers">
+      <UniqueIdentifier>{d6341225-f2e0-4426-b8ae-010325537ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ex1_source">
+      <UniqueIdentifier>{f7ab271a-3791-4623-9a73-db15d5fca06d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,20 +30,20 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SOCK_connector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SOCK_stream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="winsockHandling.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Ex1_headers</Filter>
     </ClInclude>
     <ClInclude Include="INET_Address.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Ex1_headers</Filter>
     </ClInclude>
     <ClInclude Include="SOCK_Acceptor.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_connector.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="winsockHandling.hpp">
+      <Filter>Ex1_headers</Filter>
     </ClInclude>
     <ClInclude Include="Event_handler.hpp">
       <Filter>Header Files</Filter>
@@ -50,20 +56,20 @@
     <ClCompile Include="Exercise2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SOCK_stream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="winsockHandling.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="INET_Address.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Ex1_source</Filter>
     </ClCompile>
     <ClCompile Include="SOCK_Acceptor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_stream.cpp">
+      <Filter>Ex1_source</Filter>
     </ClCompile>
     <ClCompile Include="SOCK_connector.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="winsockHandling.cpp">
+      <Filter>Ex1_source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
