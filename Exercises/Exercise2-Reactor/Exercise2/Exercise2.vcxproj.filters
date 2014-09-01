@@ -48,7 +48,17 @@
     <ClInclude Include="Event_handler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Reactor.hpp">
+=======
+    <ClInclude Include="Alarm_EventHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PatientValue_EventHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Log_EventHandler.h">
+>>>>>>> non virtual destructor in event handler base class. Also built so classes are in project
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,7 +84,17 @@
     <ClCompile Include="winsockHandling.cpp">
       <Filter>Ex1_source</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Reactor.cpp">
+=======
+    <ClCompile Include="Log_EventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PatientValue_EventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Alarm_EventHandler.cpp">
+>>>>>>> non virtual destructor in event handler base class. Also built so classes are in project
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
