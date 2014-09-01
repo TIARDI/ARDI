@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Reactor.h"
-//#include "Event_handler.h"
+#include "Event_handler.hpp"
 
 #ifdef WIN32
 	#include <WinSock2.h>
@@ -8,9 +8,7 @@
 
 #endif
 
-typedef int Event_Type;
-typedef int Event_Handler;
-typedef int Reactor_Implementation;
+typedef Reactor Reactor_Implementation;
 
 void Reactor::register_handler(Event_Handler *eh, Event_Type et)
 {
