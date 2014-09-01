@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
+    <ClInclude Include="Reactor.h" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_connector.hpp" />
     <ClInclude Include="SOCK_stream.h" />
@@ -92,6 +93,7 @@
   <ItemGroup>
     <ClCompile Include="Exercise2.cpp" />
     <ClCompile Include="INET_Address.cpp" />
+    <ClCompile Include="Reactor.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_connector.cpp" />
     <ClCompile Include="SOCK_stream.cpp" />
