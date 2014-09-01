@@ -79,6 +79,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Demux_Table.h" />
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
@@ -89,6 +90,7 @@
     <ClInclude Include="winsockHandling.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Demux_Table.cpp" />
     <ClCompile Include="Exercise2.cpp" />
     <ClCompile Include="INET_Address.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
