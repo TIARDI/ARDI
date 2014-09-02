@@ -49,7 +49,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Reactor.hpp">
-	      <Filter>Header Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Alarm_EventHandler.h">
       <Filter>Header Files</Filter>
@@ -61,6 +61,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Demux_Table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteReactor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reactor_Implementation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Select_Reactor_Implementation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -87,7 +96,7 @@
       <Filter>Ex1_source</Filter>
     </ClCompile>
     <ClCompile Include="Reactor.cpp">
-	      <Filter>Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Log_EventHandler.cpp">
       <Filter>Source Files</Filter>
@@ -99,6 +108,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Demux_Table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteReactor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Select_Reactor_Implementation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
