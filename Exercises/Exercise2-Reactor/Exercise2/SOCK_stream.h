@@ -18,8 +18,8 @@ public:
 	SOCKET get_handle() const;
 	size_t recv(char *buf, size_t len, int flags);
 	size_t send(const char *buf, size_t len, int flags);
-	size_t recv_n(char *buf, size_t len, int flags);
-	size_t send_n(const char *buf, size_t len, int flags);
+	//size_t recv_n(char *buf, size_t len, int flags);
+	//size_t send_n(const char *buf, size_t len, int flags);
 
 private:
 	// Socket handle for exchanging socket data.
