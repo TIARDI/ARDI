@@ -21,7 +21,7 @@ void Select_Reactor_Implementation::register_handler(Event_Handler *eh, Event_ty
 		delete mapItr->second.handler;
 	}
 
-	auto eht = EventHandlerTuple();
+	EventHandlerTuple eht;
 	eht.handler = eh;
 	eht.type = et;
 
@@ -49,7 +49,7 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 
 	if (ret == SOCKET_ERROR)
 	{
-		auto ss = std::stringstream();
+		std::stringstream ss;
 		ss << "In Select Reactor: socket error while running select(). ";
 		ss << "ErrorCode: " << WSAGetLastError();
 		throw std::runtime_error(ss.str());
