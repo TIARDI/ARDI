@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "Log_EventHandler.h"
 
-Log_EventHandler::Log_EventHandler()
+Log_EventHandler::Log_EventHandler(SOCK_Stream&, Reactor*)
 {
 
 }

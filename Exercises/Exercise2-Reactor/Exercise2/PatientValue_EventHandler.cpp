@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PatientValue_EventHandler.h"
 
-PatientValue_EventHandler::PatientValue_EventHandler()
+PatientValue_EventHandler::PatientValue_EventHandler(SOCK_Stream&, Reactor*)
 {
 
 }
