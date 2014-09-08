@@ -1,14 +1,18 @@
 #include "stdafx.h"
 #include <winsock2.h>
 #include <iostream>
+#include <mutex>
 #include "winsockHandling.hpp"
 
 namespace winsockHandling
 {
 	static int references = 0;
+	static std::mutex mut;
 
 	void init_winsock()
 	{
+		std::lock_guard<std::mutex> lock(mut);
+
 		if (references == 0) //first use of winsock. call WSAStartUp.
 		{
 			WSADATA wsaData;
@@ -27,6 +31,8 @@ namespace winsockHandling
 
 	void close_winsock()
 	{
+		std::lock_guard<std::mutex> lock(mut);
+
 		references--;
 
 		if (references == 0)
