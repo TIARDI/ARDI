@@ -15,7 +15,7 @@ void PatientValue_EventAcceptor::handle_event(HANDLE h, Event_type eType)
 	{
 		SOCK_Stream client_conn;
 		acceptor_.accept(client_conn);
-		PatientValue_EventHandler *patientvalue_handler = new PatientValue_EventHandler(client_conn,reactor_);
+		PatientValue_EventHandler *patientvalue_handler = new PatientValue_EventHandler(client_conn, reactor_);
 	}
 }
 HANDLE PatientValue_EventAcceptor::get_handle() const

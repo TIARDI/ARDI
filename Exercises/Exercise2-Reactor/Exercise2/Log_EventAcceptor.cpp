@@ -15,7 +15,7 @@ void Log_EventAcceptor::handle_event(HANDLE h, Event_type eType)
 	{
 		SOCK_Stream client_conn;
 		acceptor_.accept(client_conn);
-		Log_EventHandler *log_handler = new Log_EventHandler(client_conn,reactor_);
+		Log_EventHandler *log_handler = new Log_EventHandler(client_conn, reactor_);
 	}
 }
 HANDLE Log_EventAcceptor::get_handle() const

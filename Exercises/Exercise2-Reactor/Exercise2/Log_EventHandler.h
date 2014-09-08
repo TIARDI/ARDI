@@ -1,12 +1,14 @@
 #pragma once
 #include <winsock2.h>
 #include "Event_handler.hpp"
+#include "Reactor.hpp"
+#include "SOCK_stream.h"
 
 class Log_EventHandler : public Event_Handler
 {
 public:
 
-	Log_EventHandler();
+	Log_EventHandler(SOCK_Stream&, Reactor*);
 	~Log_EventHandler();
 	
 	void handle_event(HANDLE h, Event_type eType);
