@@ -29,7 +29,7 @@ void SOCK_Stream::close()
 	}
 }
 
-// Set/get the underlying SOCKET handle.
+// Set the underlying SOCKET handle.
 void SOCK_Stream::set_handle (SOCKET h)
 { 
 	close(); //close current socket first.
@@ -42,7 +42,9 @@ SOCKET SOCK_Stream::get_handle () const
 }
 // Regular I/O operations.
 
-size_t SOCK_Stream::recv(char *buf, size_t len, int flags)
+//Receiver function
+//Set reference to a char, set the sizeof the buffer and let flag
+size_t SOCK_Stream::recv(char *buf, size_t len, int flags = 0)
 {
 	return ::recv(handle_, buf, len, flags);
 }
