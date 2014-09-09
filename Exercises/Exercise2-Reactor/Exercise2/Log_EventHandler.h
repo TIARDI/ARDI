@@ -1,5 +1,7 @@
 #pragma once
 #include <winsock2.h>
+#include <iostream>
+#include <string>
 #include "Event_handler.hpp"
 #include "Reactor.hpp"
 #include "SOCK_stream.h"
@@ -13,4 +15,8 @@ public:
 	
 	void handle_event(HANDLE h, Event_type eType);
 	HANDLE get_handle() const;
+
+private:
+	SOCK_Stream _peer_stream;
+	Reactor *_reactor;
 };

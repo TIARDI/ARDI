@@ -2,23 +2,40 @@
 #include "stdafx.h"
 #include "Log_EventHandler.h"
 
-Log_EventHandler::Log_EventHandler(SOCK_Stream&, Reactor*)
+Log_EventHandler::Log_EventHandler(SOCK_Stream& stream, Reactor* reactor)
+	: _peer_stream(stream), _reactor(reactor)
 {
-
+	_reactor->register_handler(this, Event_type::READ);
 }
 Log_EventHandler::~Log_EventHandler()
 {
-
+	_reactor->remove_handler(this,READ); //Correct?
+	delete this;
 }
 	
 void Log_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
-
+		if(eType == READ)
+		{
+			char* rxValue = new char[];
+			char* size = new char[];
+			int res = _peer_stream.recv(size,sizeof(int),0);
+			res = _peer_stream.recv(rxValue,atoi(size),0);
+			std::cout << "Log message: " << std::string(rxValue) << std::endl;
+			delete rxValue;
+			delete size;
+		}
+		else
+		{
+			std::cout << "Error from Log_EventHandler" << std::endl;
+			_reactor->remove_handler(this,READ);
+			delete this;
+		}
 }
 
 HANDLE Log_EventHandler::get_handle() const
 {
-	return 0;
+	return (HANDLE)_peer_stream.get_handle();
 }
 
 
