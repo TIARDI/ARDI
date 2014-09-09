@@ -12,7 +12,7 @@ Alarm_EventHandler::Alarm_EventHandler(const SOCK_Stream &stream, Reactor *react
 Alarm_EventHandler::~Alarm_EventHandler()
 {
 	_reactor->remove_handler(this,READ); //Correct?
-	delete _reactor;
+	delete this;
 }
 
 void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
@@ -36,11 +36,9 @@ void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
 	else
 	{
 		std::cout << "Error from Alarm_EventHandler" << std::endl;
-		_reactor->remove_handler(this,READ);
+		_reactor->remove_handler(this, eType);
 		delete this;
 	}
-
-
 }
 
 HANDLE Alarm_EventHandler::get_handle() const
