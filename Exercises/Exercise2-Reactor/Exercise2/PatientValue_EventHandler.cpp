@@ -10,7 +10,7 @@ PatientValue_EventHandler::PatientValue_EventHandler(SOCK_Stream& stream, Reacto
 
 PatientValue_EventHandler::~PatientValue_EventHandler()
 {
-	_reactor->register_handler(this,READ);
+	_reactor->register_handler(this, READ);
 	delete this;
 }
 
@@ -18,8 +18,8 @@ void PatientValue_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
 	if(eType == READ)
 	{
-		char buf ;
-		std::cout << _peer_stream.recv(&buf, sizeof buf, NULL) << std::endl;
+		char buf;
+		std::cout << _peer_stream.recv(&buf, sizeof buf, 0) << std::endl;
 	}
 	else
 	{
