@@ -11,12 +11,28 @@ Alarm_EventHandler::Alarm_EventHandler(const SOCK_Stream &stream, Reactor *react
 
 Alarm_EventHandler::~Alarm_EventHandler()
 {
-	_reactor->remove_handler(this,READ); //Correct?
-	delete this;
+	//_reactor->remove_handler(this,READ); //Correct?
+	//delete &_peer_stream;
+	//delete this;
 }
 
 void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
+	char* rxValue = new char[];
+	char* size = new char[];
+	int res = _peer_stream.recv(size,sizeof(int),0);
+
+	if(res == 0)
+	{
+		
+		delete rxValue;
+		delete size;
+		//delete this;
+
+		_reactor->remove_handler(this, eType);
+		return;
+	}
+
 	if(eType == READ)
 	{
 		time_t t = time(0);

@@ -13,9 +13,9 @@ void Alarm_EventAcceptor::handle_event(HANDLE h, Event_type eType)
 {
 	if(eType == Event_type::ACCEPT)
 	{
-		SOCK_Stream client_conn;
-		acceptor_.accept(client_conn);
-		Alarm_EventHandler *alarm_handler = new Alarm_EventHandler(client_conn,reactor_);
+		SOCK_Stream* client_conn = new SOCK_Stream();
+		acceptor_.accept(*client_conn);
+		Alarm_EventHandler *alarm_handler = new Alarm_EventHandler(*client_conn,reactor_);
 	}
 }
 HANDLE Alarm_EventAcceptor::get_handle() const

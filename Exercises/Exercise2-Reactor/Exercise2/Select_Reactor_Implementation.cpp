@@ -2,6 +2,7 @@
 #include "Select_Reactor_Implementation.hpp"
 #include <stdexcept>
 #include <sstream>
+#include <iostream>
 
 Select_Reactor_Implementation::~Select_Reactor_Implementation()
 {
@@ -52,6 +53,7 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 		std::stringstream ss;
 		ss << "In Select Reactor: socket error while running select(). ";
 		ss << "ErrorCode: " << WSAGetLastError();
+		std::cout << ss.str();
 		throw std::runtime_error(ss.str());
 	}
 	else if (ret == 0) //timeout
