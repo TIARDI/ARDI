@@ -18,8 +18,8 @@ void PatientValue_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
 	if(eType == READ)
 	{
-		char* buf;
-		std::cout << _peer_stream.recv(buf, sizeof buf, ) << std::endl;
+		char buf ;
+		std::cout << _peer_stream.recv(&buf, sizeof buf, NULL) << std::endl;
 	}
 	else
 	{
