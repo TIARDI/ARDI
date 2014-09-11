@@ -13,7 +13,6 @@ Alarm_EventHandler::~Alarm_EventHandler()
 {
 	//_reactor->remove_handler(this,READ); //Correct?
 	//delete &_peer_stream;
-	//delete this;
 }
 
 void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
@@ -27,7 +26,6 @@ void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
 		
 		delete rxValue;
 		delete size;
-		//delete this;
 
 		_reactor->remove_handler(this, eType);
 		return;

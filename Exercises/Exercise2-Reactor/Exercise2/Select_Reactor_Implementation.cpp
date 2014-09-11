@@ -75,6 +75,9 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 			{
 				handlerKvp.second.handler->handle_event(handlerKvp.first, handlerKvp.second.type);
 			}
+
+			if(demuxTable.size() == 3)
+				return;
 		}
 	}
 }
