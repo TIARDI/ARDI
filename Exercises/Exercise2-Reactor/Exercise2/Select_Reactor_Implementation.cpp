@@ -6,10 +6,12 @@
 
 Select_Reactor_Implementation::~Select_Reactor_Implementation()
 {
+	/*
 	for (auto handlerKvp : demuxTable)
 	{
 		delete handlerKvp.second.handler;
 	}
+	*/
 	//~demux_table() will clean the rest
 }
 
@@ -35,7 +37,7 @@ void Select_Reactor_Implementation::remove_handler(Event_Handler *eh, Event_type
 	if (mapItr != demuxTable.end())
 	{
 		//handle is currently in map - cleanup.
-		delete mapItr->second.handler;
+		//delete mapItr->second.handler;
 		demuxTable.erase(mapItr);
 	}
 }

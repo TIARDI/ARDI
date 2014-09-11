@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ctime>
 
-Alarm_EventHandler::Alarm_EventHandler(const SOCK_Stream &stream, Reactor *reactor) 
+Alarm_EventHandler::Alarm_EventHandler(std::shared_ptr<SOCK_Stream>stream, Reactor *reactor)
 	: _peer_stream(stream), _reactor(reactor)
 {
 	_reactor->register_handler(this, READ);
@@ -20,7 +20,7 @@ void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
 	char* rxValue = new char[];
 	char* size = new char[];
-	int res = _peer_stream.recv(size,sizeof(int),0);
+	int res = _peer_stream->recv(size,sizeof(int),0);
 
 	if(res == 0)
 	{
@@ -59,5 +59,5 @@ void Alarm_EventHandler::handle_event(HANDLE h, Event_type eType)
 
 HANDLE Alarm_EventHandler::get_handle() const
 {
-	return (HANDLE)_peer_stream.get_handle();
+	return (HANDLE)_peer_stream->get_handle();
 }
