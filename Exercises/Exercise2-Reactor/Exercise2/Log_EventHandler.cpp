@@ -1,8 +1,10 @@
 
 #include "stdafx.h"
 #include "Log_EventHandler.h"
+#include <array>
 
-Log_EventHandler::Log_EventHandler(SOCK_Stream& stream, Reactor* reactor)
+
+Log_EventHandler::Log_EventHandler(std::shared_ptr<SOCK_Stream> stream, Reactor* reactor)
 	: _peer_stream(stream), _reactor(reactor)
 {
 	_reactor->register_handler(this, Event_type::READ);
@@ -15,15 +17,23 @@ Log_EventHandler::~Log_EventHandler()
 	
 void Log_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
+
 		if(eType == READ)
 		{
-			char* rxValue = new char[];
-			char* size = new char[];
-			int res = _peer_stream.recv(size,sizeof(int),0);
-			res = _peer_stream.recv(rxValue,atoi(size),0);
-			std::cout << "Log message: " << std::string(rxValue) << std::endl;
-			delete rxValue;
-			delete size;
+
+			std::array<char, 100> buffer;
+			buffer.fill(0);
+			auto res = _peer_stream->recv(buffer.data(),buffer.size(),0);
+
+			if(res == 0)
+			{
+				std::cout << "Log_EventHandler: connection closed." << std::endl;
+				_reactor->remove_handler(this, eType);
+				return;
+
+			}
+
+			std::cout << "Log message: " << buffer.data() << std::endl;
 		}
 		else
 		{
@@ -35,7 +45,7 @@ void Log_EventHandler::handle_event(HANDLE h, Event_type eType)
 
 HANDLE Log_EventHandler::get_handle() const
 {
-	return (HANDLE)_peer_stream.get_handle();
+	return (HANDLE)_peer_stream->get_handle();
 }
 
 

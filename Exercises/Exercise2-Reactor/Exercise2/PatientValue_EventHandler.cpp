@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "PatientValue_EventHandler.h"
 #include <iostream>
+#include <array>
 
-PatientValue_EventHandler::PatientValue_EventHandler(SOCK_Stream& stream, Reactor* reactor)
+PatientValue_EventHandler::PatientValue_EventHandler(std::shared_ptr<SOCK_Stream> stream, Reactor* reactor)
 	: _peer_stream(stream), _reactor(reactor)
 {
 	_reactor->register_handler(this, READ);
@@ -10,16 +11,25 @@ PatientValue_EventHandler::PatientValue_EventHandler(SOCK_Stream& stream, Reacto
 
 PatientValue_EventHandler::~PatientValue_EventHandler()
 {
-	_reactor->register_handler(this, READ);
-	delete this;
 }
 
 void PatientValue_EventHandler::handle_event(HANDLE h, Event_type eType)
 {
 	if(eType == READ)
 	{
-		char buf;
-		std::cout << _peer_stream.recv(&buf, sizeof buf, 0) << std::endl;
+		std::array<char, 100> buffer;
+		buffer.fill(0);
+
+		auto res = _peer_stream->recv(buffer.data(), buffer.size(), 0);
+
+		if (res == 0)
+		{
+			std::cout << "patientValue_EventHandler: connection closed." << std::endl;
+			_reactor->remove_handler(this, eType);
+			return;
+		}
+
+		std::cout << buffer.data() << std::endl;
 	}
 	else
 	{
@@ -31,5 +41,5 @@ void PatientValue_EventHandler::handle_event(HANDLE h, Event_type eType)
 
 HANDLE PatientValue_EventHandler::get_handle() const
 {
-	return (HANDLE)_peer_stream.get_handle();
+	return (HANDLE)_peer_stream->get_handle();
 }

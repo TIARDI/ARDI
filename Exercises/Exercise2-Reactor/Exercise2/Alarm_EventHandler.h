@@ -3,7 +3,6 @@
 #include "Event_handler.hpp"
 #include "SOCK_stream.h"
 #include "Reactor.hpp"
-#include <memory>
 
 class Alarm_EventHandler : public Event_Handler
 {

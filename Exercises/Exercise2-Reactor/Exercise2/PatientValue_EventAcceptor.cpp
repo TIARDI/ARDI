@@ -8,14 +8,14 @@ PatientValue_EventAcceptor::PatientValue_EventAcceptor(const INET_Address &addr,
 PatientValue_EventAcceptor::~PatientValue_EventAcceptor()
 {
 }
-	
+
 void PatientValue_EventAcceptor::handle_event(HANDLE h, Event_type eType)
 {
 	if(eType == Event_type::ACCEPT)
 	{
-		SOCK_Stream client_conn;
-		acceptor_.accept(client_conn);
-		PatientValue_EventHandler *patientvalue_handler = new PatientValue_EventHandler(client_conn, reactor_);
+		auto client_conn = std::make_shared<SOCK_Stream>();
+		acceptor_.accept(*client_conn);
+		new PatientValue_EventHandler(client_conn, reactor_);
 	}
 }
 HANDLE PatientValue_EventAcceptor::get_handle() const
