@@ -1,5 +1,6 @@
 #pragma once
 #include <winsock2.h>
+#include <memory>
 
 enum Event_type
 {

@@ -8,12 +8,12 @@ class PatientValue_EventHandler : public Event_Handler
 {
 public:
 
-	PatientValue_EventHandler(SOCK_Stream&, Reactor*);
+	PatientValue_EventHandler(std::shared_ptr<SOCK_Stream>, Reactor*);
 	~PatientValue_EventHandler();
 	
 	void handle_event(HANDLE h, Event_type eType);
 	HANDLE get_handle() const;
 private:
-	SOCK_Stream _peer_stream;
+	std::shared_ptr<SOCK_Stream> _peer_stream;
 	Reactor* _reactor;
 };
