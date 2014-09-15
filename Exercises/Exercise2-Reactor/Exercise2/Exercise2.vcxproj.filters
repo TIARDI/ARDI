@@ -14,10 +14,10 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Ex1_headers">
-      <UniqueIdentifier>{d6341225-f2e0-4426-b8ae-010325537ff6}</UniqueIdentifier>
+      <UniqueIdentifier>{5d5edb60-740f-4c20-962e-a24f9b993c0b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ex1_source">
-      <UniqueIdentifier>{f7ab271a-3791-4623-9a73-db15d5fca06d}</UniqueIdentifier>
+      <UniqueIdentifier>{3c9416b2-7552-460d-a7ff-9a4cfa3d29e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,21 +29,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCK_stream.h">
-      <Filter>Ex1_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="INET_Address.hpp">
-      <Filter>Ex1_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCK_Acceptor.hpp">
-      <Filter>Ex1_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCK_connector.hpp">
-      <Filter>Ex1_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="winsockHandling.hpp">
-      <Filter>Ex1_headers</Filter>
     </ClInclude>
     <ClInclude Include="Event_handler.hpp">
       <Filter>Header Files</Filter>
@@ -81,6 +66,21 @@
     <ClInclude Include="PatientValue_EventAcceptor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="INET_Address.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_Acceptor.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_connector.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_stream.h">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="winsockHandling.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -88,21 +88,6 @@
     </ClCompile>
     <ClCompile Include="Exercise2.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="INET_Address.cpp">
-      <Filter>Ex1_source</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCK_Acceptor.cpp">
-      <Filter>Ex1_source</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCK_stream.cpp">
-      <Filter>Ex1_source</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCK_connector.cpp">
-      <Filter>Ex1_source</Filter>
-    </ClCompile>
-    <ClCompile Include="winsockHandling.cpp">
-      <Filter>Ex1_source</Filter>
     </ClCompile>
     <ClCompile Include="Reactor.cpp">
       <Filter>Source Files</Filter>
@@ -133,6 +118,21 @@
     </ClCompile>
     <ClCompile Include="PatientValue_EventAcceptor.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="INET_Address.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Acceptor.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_connector.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_stream.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="winsockHandling.cpp">
+      <Filter>Ex1_source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

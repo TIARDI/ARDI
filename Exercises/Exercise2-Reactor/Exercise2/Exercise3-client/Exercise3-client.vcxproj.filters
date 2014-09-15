@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Ex1_headers">
+      <UniqueIdentifier>{25c07bf0-64c2-45eb-ab91-04549eecf192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ex1_source">
+      <UniqueIdentifier>{3d6ff16f-b78b-47e7-8dfa-4c0bbf13f2fe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\INET_Address.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SOCK_Acceptor.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SOCK_connector.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SOCK_stream.h">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\winsockHandling.hpp">
+      <Filter>Ex1_headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise3-client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INET_Address.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SOCK_Acceptor.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SOCK_connector.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SOCK_stream.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\winsockHandling.cpp">
+      <Filter>Ex1_source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
