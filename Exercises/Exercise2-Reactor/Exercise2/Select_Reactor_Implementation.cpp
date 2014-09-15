@@ -49,6 +49,7 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 	demuxTable.convert_to_fd_sets(&read_set, &write_set, &except_set);
 
 	auto ret = ::select(0, &read_set, &write_set, &except_set, timeout);
+	std::map<HANDLE, EventHandlerTuple> iterTable(demuxTable);
 
 	if (ret == SOCKET_ERROR)
 	{
@@ -60,14 +61,14 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 	}
 	else if (ret == 0) //timeout
 	{
-		for (auto handlerKvp : demuxTable)
+		for (auto handlerKvp : iterTable)
 		{
 			handlerKvp.second.handler->handle_event(handlerKvp.first, TIMEOUT);
 		}
 	}
 	else
 	{
-		for (auto handlerKvp : demuxTable)
+		for (auto handlerKvp : iterTable)
 		{
 			if (FD_ISSET((SOCKET)handlerKvp.first, &read_set) ||
 				FD_ISSET((SOCKET)handlerKvp.first, &write_set) ||
@@ -75,9 +76,6 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 			{
 				handlerKvp.second.handler->handle_event(handlerKvp.first, handlerKvp.second.type);
 			}
-
-			if(demuxTable.size() == 3)
-				return;
 		}
 	}
 }
