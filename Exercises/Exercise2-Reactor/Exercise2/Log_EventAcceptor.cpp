@@ -13,8 +13,8 @@ void Log_EventAcceptor::handle_event(HANDLE h, Event_type eType)
 {
 	if(eType == Event_type::ACCEPT)
 	{
-		SOCK_Stream client_conn;
-		acceptor_.accept(client_conn);
+		auto client_conn = std::make_shared<SOCK_Stream>();
+		acceptor_.accept(*client_conn);
 		Log_EventHandler *log_handler = new Log_EventHandler(client_conn, reactor_);
 	}
 }
