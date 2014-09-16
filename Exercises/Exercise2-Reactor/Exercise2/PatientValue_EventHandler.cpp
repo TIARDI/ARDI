@@ -20,7 +20,7 @@ void PatientValue_EventHandler::handle_event(HANDLE h, Event_type eType)
 		std::array<char, 100> buffer;
 		buffer.fill(0);
 
-		auto res = _peer_stream->recv(buffer.data(), buffer.size(), 0);
+		auto res = _peer_stream->recv(buffer.data(), buffer.size() - 1, 0);
 
 		if (res == 0)
 		{
@@ -28,8 +28,8 @@ void PatientValue_EventHandler::handle_event(HANDLE h, Event_type eType)
 			_reactor->remove_handler(this, eType);
 			return;
 		}
-
-		std::cout << buffer.data() << std::endl;
+		std::cout << "Type: " << buffer[0] << std::endl;
+		std::cout << "Value: " << buffer.data() + 1 << std::endl;
 	}
 	else
 	{
