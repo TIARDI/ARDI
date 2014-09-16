@@ -6,7 +6,7 @@ class SOCK_Connector
 {
 public:
 	SOCK_Connector();
-	void connect(SOCK_Stream& server, INET_Address& addr);
+	void connect(SOCK_Stream& server, const INET_Address& addr);
 	//void complete();
 	virtual ~SOCK_Connector();
 };

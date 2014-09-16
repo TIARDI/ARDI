@@ -77,21 +77,32 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Demux_Table.h" />
+    <ClInclude Include="..\Event_handler.hpp" />
     <ClInclude Include="..\INET_Address.hpp" />
+    <ClInclude Include="..\Reactor.hpp" />
+    <ClInclude Include="..\Reactor_Implementation.hpp" />
+    <ClInclude Include="..\Select_Reactor_Implementation.hpp" />
     <ClInclude Include="..\SOCK_Acceptor.hpp" />
     <ClInclude Include="..\SOCK_connector.hpp" />
     <ClInclude Include="..\SOCK_stream.h" />
     <ClInclude Include="..\winsockHandling.hpp" />
+    <ClInclude Include="LogSender_EventHandler.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\ConcreteReactor.cpp" />
+    <ClCompile Include="..\Demux_Table.cpp" />
     <ClCompile Include="..\INET_Address.cpp" />
+    <ClCompile Include="..\Reactor.cpp" />
+    <ClCompile Include="..\Select_Reactor_Implementation.cpp" />
     <ClCompile Include="..\SOCK_Acceptor.cpp" />
     <ClCompile Include="..\SOCK_connector.cpp" />
     <ClCompile Include="..\SOCK_stream.cpp" />
     <ClCompile Include="..\winsockHandling.cpp" />
     <ClCompile Include="Exercise3-client.cpp" />
+    <ClCompile Include="LogSender_EventHandler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
