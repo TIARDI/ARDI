@@ -5,6 +5,36 @@
 
 \subsection{Sequence diagrams}
 
+The work of the client is mostly performed by the eventhandlers, each creating a connection to the server during initialization. After initialization, the the client performs one iteration of eventhandling, that is a call to \code{Reactor::handle\_events()} which was explained in figure \ref{seq:reactorSeq}. Thus, the sockets created by each of the eventhandlers will be writeable and each of the eventhandlers will hande the \code{WRITE} event. The sequence for the eventhandlers is outlined in figure \ref{fig:clientEventHandler}.
+
+\begin{figure}
+\begin {sequencediagram}
+	\newinst[0]{rea}{:Reactor}
+	\newinst[0.4]{evh}{:EventHandler}
+	\newinst[1.1]{sock}{:SOCK\_stream}
+
+	\begin{messcall}{rea}{Handle\_event(h, eType)}{evh}
+
+		\begin{sdblock}{if}{eType == WRITE}
+			\begin{call}{evh}{send(\dots)}{sock}{res}
+			\end{call}
+
+		\end{sdblock}
+
+		\begin{sdblock}{else}{}
+			\begin{call}{evh}{remove\_handler(this, eType)}{rea}{}
+			\end{call}
+		\end{sdblock}
+
+	\end{messcall}
+
+
+
+\end{sequencediagram}
+
+\caption{Sequence for client event handling.}
+\label{fig:clientEventHandler}
+\end{figure}
 
 
 \end{document}
