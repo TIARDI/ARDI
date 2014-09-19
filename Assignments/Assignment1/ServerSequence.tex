@@ -56,20 +56,30 @@ This means it can call the one of the following three classes:
 \begin {sequencediagram}
 	\newhiddenthread {hid}{:hidden}
 	\newinst[0.4]{alm}{:Alarm\_EventHandler}
-	\newinst[0.2]{sock}{:SOCK\_stream}
-	\newthreadmargin[3.5]{rea}{:Reactor}
+	\newinst[1.1]{sock}{:SOCK\_stream}
+	\newthreadmargin{rea}{:Reactor}
 
 	\begin{messcall}{hid}{Handle\_event(h, eType)}{alm}
 
 		\begin{sdblock}{if}{eType == READ}
+			\begin{call}{alm}{recv(\dots)}{sock}{res}
+			\end{call}
 
-			\begin{messcall}{alm}{remove\_handler(this, eType)}{rea}
-			\end{messcall}
+			\begin{sdblock}{if}{res == 0}
+				\begin{messcall}{alm}{remove\_handler(this,eType)}{rea}
+				\end{messcall}
+
+				\mess{alm}{return}{hid}
+
+			\end{sdblock}
+
+			\begin{callself}{alm}{PrintMessage}{}
+			\end{callself}
 		\end{sdblock}
 
 		\begin{sdblock}{else}{}
-			\begin{messcall}{alm}{remove\_handler(this, eType)}{rea}
-			\end{messcall}
+			\begin{call}{alm}{remove\_handler(this, eType)}{rea}{}
+			\end{call}
 		\end{sdblock}
 
 	\end{messcall}
