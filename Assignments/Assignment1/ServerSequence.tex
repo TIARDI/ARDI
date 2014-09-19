@@ -3,22 +3,78 @@
 
 \begin{document}
 
-
+\begin{figure}
 \begin {sequencediagram}
 	\newthread {main}{: Main }
 	\newinst[1.6]{rea}{: Reactor}
 	\newinst[1.8]{demu}{: DemuxTable}
+	\newinst[0.4]{wins}{:WinSock2}
+	\newhiddenthread{hid}{:hidden}
 
 	\begin{sdblock}{Run Loop}{Main loop}
 		\begin{messcall}{main}{handle\_events()}{rea}
 			\begin{messcall}{rea}{convert\_to\_fd\_sets()}{demu}
 			\end{messcall}
 
-		\end{messcall}
-		
+			\begin{call}{rea}{select(\dots)}{wins}{ret}
+			\end{call}
 
+			\begin{sdblock}{if}{ret == SOCKET\_ERROR}
+				\begin{callself}{rea}{throw exception}{}
+				\end{callself}
+			\end{sdblock}
+
+			\begin{sdblock}{if}{ret == 0}
+				\begin{callself}{rea}{Handle Timeout}{}
+				\end{callself}
+			\end{sdblock}
+
+			\begin{sdblock}{if}{else}
+				\begin{messcall}{rea}{handle\_event(first, type) - depending on type}{hid}
+				\end{messcall}
+			\end{sdblock}
+
+		\end{messcall}
 	\end{sdblock}
 
 \end{sequencediagram}
+
+\caption{Sequence diagram for Server}
+\label{seq:serverMain}
+\end{figure}
+
+The \code{handle\_event(first, type)} will call the class of the given type.
+This means it can call the one of the following three classes:
+\begin{itemize}
+	\item \code{Alarm\_EventHandler}
+	\item \code{Log\_EventHandler}
+	\item \code{PatientValue\_EventHandler}
+\end{itemize}
+
+\newpage
+\begin{figure}
+\begin {sequencediagram}
+	\newhiddenthread {hid}{:hidden}
+	\newinst[0.4]{alm}{:Alarm\_EventHandler}
+	\newinst[1]{rea}{:Reactor}
+
+	\begin{call}{hid}{Reactor}{rea}{}
+	\end{call}
+	\begin{messcall}{hid}{Handle\_event(h, eType)}{alm}
+	\end{messcall}
+
+		% 	\begin{sdblock}{if}{eType == READ}
+		% 	\message{alm}{remove\_handler(this, eType)}{rea}
+		% \end{sdblock}
+
+		% \begin{sdblock}{else}{}
+		% 	\message{alm}{remove\_handler(this, eType)}{rea}
+		% \end{sdblock}
+
+\end{sequencediagram}
+
+\caption{Title of figure}
+\label{fig:alarmEventHandler}
+\end{figure}
 
 \end{document}

@@ -4,5 +4,12 @@
 \begin{document}
 
 \subsection{Intro to design of server}
-
+The server is designed to handle multiple incoming requests of different types from clients.
+It accepts the following events:
+\begin{itemize}
+\item an alarm event, with time and priority
+\item a patient value, containing a key-value pair
+\item a log event containing a message
+\end{itemize}
+When the server starts, it listens for the events, each on a different port, and sends the program control to the reactor, who then handles incoming and current requests.
 \end{document}

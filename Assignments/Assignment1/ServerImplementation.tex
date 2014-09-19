@@ -4,5 +4,13 @@
 \begin{document}
 
 \subsection{Implementation details}
+\subsubsection{Winsock Handleing}
+When working with Winsock there is a need to initialize the Winsock library.
+This is done by calling the \code{WSAStartup()} function, and calling \code{WSASClose()} when sockets are no longer needed.\\
+To ensure the sockets are initialized and properly cleaned up afterwards, 
+we have implemented some helper functions \code{winsockHandling::init\_winsock()} and \code{winsockHandling::close\_winsock()}.\\
+When WinSock are initialized a mutex is taken to prevent race conditions.
+If it is the first time the function is called, Winsock is initialized, and a reference counter is incremented.\\
+When cleaning the mutex is once again taken, and reference counter is decremented. When the counter reaches 0, \code{WSASClose} is called.
 
 \end{document}
