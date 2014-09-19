@@ -12,8 +12,14 @@ To ensure the sockets are initialized and properly cleaned up afterwards,
 we have implemented some helper functions \code{winsockHandling::init\_winsock()} and \code{winsockHandling::close\_winsock()}.\\
 These functions utilize a mutex to prevent race conditions when multiple threads attempt to call \code{init} and \code{close}.
 If it is the first time the function is called, Winsock is initialized, and a reference counter is incremented.\\
-When cleaning the mutex is once again taken, and reference counter is decremented. When the counter reaches 0, \code{WSAClose} is called.
-
+When cleaning the mutex is once again taken, and reference counter is decremented. When the counter reaches 0, \code{WSAClose} is called.\\
 These functions have been added to the constructors and destructors of the wrapper facade classes developed during exercise 1.
+
+\subsection{Smart pointers}
+Since the greater part of this program is made by pointers and the destruction of these, is not always a simple thing to do, we chose to use smart pointers. 
+These work using reference counting.
+This means that every time a reference is added to that specific address, the counting is incremented by one, and when removed it is decremented by one. This means that when the counter is zero the address can't be reached anymore and is destroyed. In this way, we do not have any need to delete the objects directly.
+
+
 
 \end{document}

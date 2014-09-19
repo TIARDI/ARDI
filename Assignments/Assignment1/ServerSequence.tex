@@ -3,7 +3,47 @@
 
 \begin{document}
 
-The \code{handle\_event(Handle, type)} called by the reactor will call the class of the given type.
+\begin{figure}
+\begin {sequencediagram}
+	\newthread {main}{: Main }
+	\newinst[1.6]{rea}{: Reactor}
+	\newinst[1.8]{demu}{: DemuxTable}
+	\newinst[0.4]{wins}{:WinSock2}
+	\newhiddenthread{hid}{:hidden}
+
+	\begin{sdblock}{Run Loop}{Main loop}
+		\begin{messcall}{main}{handle\_events()}{rea}
+			\begin{messcall}{rea}{convert\_to\_fd\_sets()}{demu}
+			\end{messcall}
+
+			\begin{call}{rea}{select(\dots)}{wins}{ret}
+			\end{call}
+
+			\begin{sdblock}{if}{ret == SOCKET\_ERROR}
+				\begin{callself}{rea}{throw exception}{}
+				\end{callself}
+			\end{sdblock}
+
+			\begin{sdblock}{if}{ret == 0}
+				\begin{callself}{rea}{Handle Timeout}{}
+				\end{callself}
+			\end{sdblock}
+
+			\begin{sdblock}{if}{else}
+				\begin{messcall}{rea}{handle\_event(first, type) - depending on type}{hid}
+				\end{messcall}
+			\end{sdblock}
+
+		\end{messcall}
+	\end{sdblock}
+
+\end{sequencediagram}
+
+\caption{Sequence diagram for Server}
+\label{seq:serverMain}
+\end{figure}
+
+The \code{handle\_event(first, type)} will call the class of the given type.
 This means it can call the one of the following three classes:
 \begin{itemize}
 	\item \code{Alarm\_EventHandler}
@@ -12,10 +52,10 @@ This means it can call the one of the following three classes:
 \end{itemize}
 
 \newpage
-\begin{figure}
+\begin{figure}[htbp]
 \begin {sequencediagram}
 	\newhiddenthread {hid}{:hidden}
-	\newinst[0.4]{alm}{:Alarm\_EventHandler}
+	\newinst[0.4]{alm}{:EventHandler}
 	\newinst[1.1]{sock}{:SOCK\_stream}
 	\newthreadmargin{rea}{:Reactor}
 
@@ -48,8 +88,11 @@ This means it can call the one of the following three classes:
 
 \end{sequencediagram}
 
-\caption{Title of figure}
-\label{fig:alarmEventHandler}
+\caption{Server's EventHandlers}
+\label{fig:SererEventHandler}
 \end{figure}
+
+
+
 
 \end{document}
