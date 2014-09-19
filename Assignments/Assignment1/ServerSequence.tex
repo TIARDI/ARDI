@@ -3,15 +3,22 @@
 
 \begin{document}
 
-\subsection{Sequence diagrams}
 
 \begin {sequencediagram}
-\newthread {name}{: Main }
-\newinst[1]{i}{:intsance}
+	\newthread {main}{: Main }
+	\newinst[1.6]{rea}{: Reactor}
+	\newinst[1.8]{demu}{: DemuxTable}
 
-\begin{call}{name}{function()}{i}{return value}
-\end{call}
+	\begin{sdblock}{Run Loop}{Main loop}
+		\begin{messcall}{main}{handle\_events()}{rea}
+			\begin{messcall}{rea}{convert\_to\_fd\_sets()}{demu}
+			\end{messcall}
 
-\end {sequencediagram}
+		\end{messcall}
+		
+
+	\end{sdblock}
+
+\end{sequencediagram}
 
 \end{document}
