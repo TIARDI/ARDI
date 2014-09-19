@@ -3,12 +3,21 @@
 
 \begin{document}
 
-\section{Patterns used in the solution}
+\section{Patterns used in the solution}\label{sec:patterns}
 This section describes the different patterns used in this solution, and what they are used for.
 \subsection{Wrapper Façade}
 With Wrapper Façade you can encapsulate the basic C functions from the Operating System, and provide a Object Oriented Interface you can use instead.\\
 Because it's an Interface without connection to the underlying OS, it can be implemented on multiple platforms and thereby enabling using the same interface no matter the platform.\\
-This can speed up the development process, because the modules can be reused in different projects, and the application code isn't dependent on OS specific code.
+This can speed up the development process, because the modules can be reused in different projects, and the application code isn't dependent on OS specific code. The class diagram for the WrapperFacade handling the socket communication can be seen in figure \ref{fig:wrapperfacadeuml}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=1.0\textwidth]{WrapperFacadeClassDiagram}
+\caption{Class diagram for the WrapperFacade for handling of communication over TCP/IP}
+\label{fig:wrapperfacadeuml}
+\end{figure}
+
+
 \subsection{Reactor}
 A Reactor can handle multiple requests from clients to a single application.\\
 It collects the requests, Demultiplexes and executes them in a synchronous manner.\\
