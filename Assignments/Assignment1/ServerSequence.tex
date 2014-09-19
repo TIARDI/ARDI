@@ -4,15 +4,15 @@
 \begin{document}
 
 \subsection{Sequence diagram}
-\documentclass
-The \code{handle\_event(first, type)} will call the class of the given type.
+Figure \ref{seq:reactorSeq} show the \code{Reactor}'s sequence diagram.
+The \code{handle\_event(HANDLE, type)} will call the class of the given type.
 This means it can call the one of the following three classes:
 \begin{itemize}
 	\item \code{Alarm\_EventHandler}
 	\item \code{Log\_EventHandler}
 	\item \code{PatientValue\_EventHandler}
 \end{itemize}
-
+These calls are all shown in Figure \ref{fig:SererEventHandler} as a common sequence diagram.
 \newpage
 \begin{figure}[htbp]
 \begin {sequencediagram}
