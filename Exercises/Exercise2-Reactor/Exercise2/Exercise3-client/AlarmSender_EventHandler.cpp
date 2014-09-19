@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "AlarmSender_EventHandler.hpp"
 
-
 #include "../SOCK_connector.hpp"
 #include <iostream>
 
@@ -12,7 +11,6 @@ AlarmSender_EventHandler::AlarmSender_EventHandler(const INET_Address& addr, Rea
 	con.connect(stream_, addr);
 	reactor_->register_handler(this, Event_type::WRITE);
 }
-
 
 AlarmSender_EventHandler::~AlarmSender_EventHandler()
 {

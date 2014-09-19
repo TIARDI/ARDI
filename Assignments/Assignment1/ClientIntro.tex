@@ -5,7 +5,7 @@
 
 \subsection{Intro to design of client}
 
-The client is designed to be a single program, that sends messages corresponding to the three event types, that the server must support. The are described in the assignment as such:
+The client is designed to be a single program, that sends messages corresponding to the three event types, that the server must support. These are described in the assignment as such:
 \textit{
 \begin{itemize}
 \item an alarm event (carrying a priority field and a text string).
@@ -13,7 +13,10 @@ The client is designed to be a single program, that sends messages corresponding
 \item a log event (carrying a text string).
 \end{itemize}}
 
-The design used for this exercise uses a connection for each of the event types. Thus the client contains three eventhandlers.
+The design used for this exercise uses a connection for each of the event types. Thus the client contains three eventhandlers - one for each type of event.
+
+Reactor 
+Connector + stream
 
 
 \end{document}
