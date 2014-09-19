@@ -13,10 +13,6 @@ The client is designed to be a single program, that sends messages corresponding
 \item a log event (carrying a text string).
 \end{itemize}}
 
-The design used for this exercise uses a connection for each of the event types. Thus the client contains three eventhandlers - one for each type of event.
-
-Reactor 
-Connector + stream
-
+The design used for this exercise uses a connection for each of the event types. Thus the client contains three eventhandlers - one for each type of event. A reactor is used to demultiplex the "write" events of the associated sockets. Each handler uses the wrapper facade classes \code{Sock\_Connector} and \code{Sock\_stream} to handle connections to the server.
 
 \end{document}
