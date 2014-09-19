@@ -100,6 +100,17 @@ Sequence Diagrams.]
   \tikzstyle{instcolor#2}=[fill=#1]
 }
 
+% new an instance thread with margin
+% Example:
+% \newinst[color]{var}{name}{class}
+\newcommand{\newthreadmargin}[3][0.2]{
+  \newinst[#1]{#2}{#3}
+  \stepcounter{threadnum}
+  \node[below of=inst\theinstnum,node distance=0.8cm] (thread\thethreadnum) {};
+  \tikzstyle{threadcolor\thethreadnum}=[gray!30]
+  \tikzstyle{instcolor#2}=[gray!30]
+}
+
 % draw running (thick) line, should not call directly
 \newcommand*{\drawthread}[2]{
   \begin{pgfonlayer}{umlsd@threadlayer}
