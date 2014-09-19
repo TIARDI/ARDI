@@ -5,6 +5,32 @@
 
 \subsection{Sequence diagrams}
 
-w00t
+\begin{figure}
+\begin {sequencediagram}
+	\newthread {main}{: Main }
+	\newinst[1.6]{rea}{: Reactor}
+	\newinst[1.8]{demu}{: DemuxTable}
+	\newinst[0.4]{wins}{:WinSock2}
+	\newhiddenthread{hid}{:hidden}
+
+	\begin{messcall}{main}{handle\_events()}{rea}
+			\begin{messcall}{rea}{convert\_to\_fd\_sets()}{demu}
+			\end{messcall}
+
+			\begin{call}{rea}{select(\dots)}{wins}{ret}
+			\end{call}
+
+			\begin{sdblock}{Loop}{For each event handler}
+				\begin{messcall}{rea}{handle\_event(HANDLE, type)}{hid}
+				\end{messcall}
+			\end{sdblock}
+
+		\end{messcall}
+
+\end{sequencediagram}
+
+\caption{Sequence diagram for Client}
+\label{seq:clientMainSeq}
+\end{figure}
 
 \end{document}
