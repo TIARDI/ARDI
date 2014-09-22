@@ -80,18 +80,28 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Acceptor.hpp" />
+    <ClInclude Include="Bulk_Data_Router.hpp" />
+    <ClInclude Include="Command_Router.hpp" />
+    <ClInclude Include="Connector.hpp" />
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
+    <ClInclude Include="Service_Handler.hpp" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_Connector.hpp" />
     <ClInclude Include="SOCK_stream.hpp" />
+    <ClInclude Include="Status_Router.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Thread_Manager.hpp" />
     <ClInclude Include="winsockHandling.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="Connector.cpp" />
     <ClCompile Include="Exercise 4.cpp" />
     <ClCompile Include="INET_Address.cpp" />
+    <ClCompile Include="Service_Handler.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_Connector.cpp" />
     <ClCompile Include="SOCK_stream.cpp" />
@@ -99,6 +109,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Thread_manager.cpp" />
     <ClCompile Include="winsockHandling.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
