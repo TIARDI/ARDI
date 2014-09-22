@@ -80,6 +80,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_Connector.hpp" />
