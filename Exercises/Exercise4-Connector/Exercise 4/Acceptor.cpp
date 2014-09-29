@@ -24,4 +24,4 @@ void Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::accept()
 	// Hook method that activates the <SERVICE_HANDLER> by 
 	// invoking its <open> activation hook method
 	activate_service_handler(service_handler);
-}
+}
