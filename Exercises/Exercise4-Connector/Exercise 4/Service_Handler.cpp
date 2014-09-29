@@ -15,7 +15,7 @@ IPC_STREAM& Service_Handler<IPC_STREAM>::peer()
 }
 
 template <class IPC_STREAM>
-Addr &Service_Handler<IPC_STREAM>::remote_addr() 
+Service_Handler<IPC_STREAM>::Addr &Service_Handler<IPC_STREAM>::remote_addr() 
 { 
 	return ipc_stream_.remote_addr(); 
 }

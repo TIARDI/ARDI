@@ -83,9 +83,15 @@
     <ClInclude Include="Acceptor.hpp" />
     <ClInclude Include="Bulk_Data_Router.hpp" />
     <ClInclude Include="Command_Router.hpp" />
+    <ClInclude Include="ConcreteReactor.hpp" />
     <ClInclude Include="Connector.hpp" />
+    <ClInclude Include="Demux_Table.h" />
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
+    <ClInclude Include="Patient_Handler.hpp" />
+    <ClInclude Include="Reactor.hpp" />
+    <ClInclude Include="Reactor_Implementation.hpp" />
+    <ClInclude Include="Select_Reactor_Implementation.hpp" />
     <ClInclude Include="Service_Handler.hpp" />
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_Connector.hpp" />
@@ -98,9 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="ConcreteReactor.cpp" />
     <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Demux_Table.cpp" />
     <ClCompile Include="Exercise 4.cpp" />
     <ClCompile Include="INET_Address.cpp" />
+    <ClCompile Include="Patient_Handler.cpp" />
+    <ClCompile Include="Reactor.cpp" />
     <ClCompile Include="Service_Handler.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_Connector.cpp" />
