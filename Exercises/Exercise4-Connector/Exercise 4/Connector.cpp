@@ -53,4 +53,4 @@ virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::complete(HANDLE handle)
 	
 	// connection is complete so activate handler
 	activate_service_handler(svc_handler); // calls open() hook
-}
+}

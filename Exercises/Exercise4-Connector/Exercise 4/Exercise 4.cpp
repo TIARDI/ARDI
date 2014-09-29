@@ -9,14 +9,16 @@
 #include <vector>
 #include "Acceptor.hpp"
 #include "SOCK_Acceptor.hpp"
+#include "Patient_Handler.hpp"
+#include "Reactor.hpp"
 
 
 typedef Service_Handler<SOCK_Stream> Peer_Router;
 typedef Connector<Peer_Router, SOCK_Connector> Peer_Connector;
 typedef std::vector<Peer_Router>::iterator Peer_Iterator;
-typedef Acceptor<Status_Handler, SOCK_Acceptor> Status_Acceptor;
-typedef Acceptor<Status_Handler, SOCK_Acceptor> Bulk_Data_Acceptor;
-typedef Acceptor<Status_Handler, SOCK_Acceptor> Command_Acceptor;
+typedef Acceptor<Patient_Handler, SOCK_Acceptor> Status_Acceptor;
+typedef Acceptor<Patient_Handler, SOCK_Acceptor> Bulk_Data_Acceptor;
+typedef Acceptor<Patient_Handler, SOCK_Acceptor> Command_Acceptor;
 
 #include "Command_Router.hpp"
 #include "Bulk_Data_Router.hpp"
