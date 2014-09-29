@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\WrapperFacade">
+      <UniqueIdentifier>{ee0cb69e-b69b-416e-be24-2130c13801f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reactor">
+      <UniqueIdentifier>{69466884-9c05-457f-86c3-c01ddcb9aa80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WrapperFacade">
+      <UniqueIdentifier>{12b9dbbd-2b17-4d37-9aee-120d536e73fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reactor">
+      <UniqueIdentifier>{621252df-17da-4158-b4e1-cc2569944795}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -22,24 +34,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="INET_Address.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCK_Acceptor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCK_Connector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="winsockHandling.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCK_stream.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Event_handler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Status_Router.hpp">
@@ -66,20 +60,38 @@
     <ClInclude Include="Patient_Handler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Reactor.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="INET_Address.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
     </ClInclude>
-    <ClInclude Include="Reactor_Implementation.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SOCK_stream.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
     </ClInclude>
-    <ClInclude Include="Select_Reactor_Implementation.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SOCK_Acceptor.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_Connector.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="winsockHandling.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
     </ClInclude>
     <ClInclude Include="Demux_Table.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Event_handler.hpp">
+      <Filter>Header Files\Reactor</Filter>
     </ClInclude>
     <ClInclude Include="ConcreteReactor.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Select_Reactor_Implementation.hpp">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Reactor_Implementation.hpp">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Reactor.hpp">
+      <Filter>Header Files\Reactor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,21 +99,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Exercise 4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="INET_Address.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCK_Acceptor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCK_Connector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCK_stream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="winsockHandling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Thread_manager.cpp">
@@ -119,14 +116,29 @@
     <ClCompile Include="Patient_Handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Reactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ConcreteReactor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Reactor</Filter>
     </ClCompile>
     <ClCompile Include="Demux_Table.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="Reactor.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="INET_Address.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Acceptor.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Connector.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_stream.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="winsockHandling.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
