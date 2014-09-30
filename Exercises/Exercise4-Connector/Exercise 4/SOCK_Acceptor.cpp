@@ -5,29 +5,8 @@
 
 SOCK_Acceptor::SOCK_Acceptor (const INET_Address &addr)
 {
-	winsockHandling::init_winsock();
-
-	// Create a local endpoint of communication.
-	handle_ = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (handle_ == INVALID_SOCKET)
-	{
-		throw std::runtime_error("Socket() failed.");
-	}
-
-	// Associate address with endpoint.
-	auto ret = bind (handle_, addr.addr (), addr.size());
-	if (ret != 0)
-	{
-		throw std::runtime_error("Bind() failed.");
-	}
-	
-	// Make endpoint listen for connections.
-	ret = listen (handle_, 5);
-	if (ret != 0)
-	{
-		throw std::runtime_error("Listen() failed.");
-	}
-};
+	open(addr);
+}
 
 SOCK_Acceptor::~SOCK_Acceptor()
 {
@@ -39,7 +18,28 @@ SOCK_Acceptor::~SOCK_Acceptor()
 // acceptor socket, analogously to the constructor.
 void SOCK_Acceptor::open (const INET_Address &sock_addr)
 {
-	// Implement Code
+	winsockHandling::init_winsock();
+
+	// Create a local endpoint of communication.
+	handle_ = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (handle_ == INVALID_SOCKET)
+	{
+		throw std::runtime_error("Socket() failed.");
+	}
+
+	// Associate address with endpoint.
+	auto ret = bind (handle_, sock_addr.addr (), sock_addr.size());
+	if (ret != 0)
+	{
+		throw std::runtime_error("Bind() failed.");
+	}
+
+	// Make endpoint listen for connections.
+	ret = listen (handle_, 5);
+	if (ret != 0)
+	{
+		throw std::runtime_error("Listen() failed.");
+	}
 };
 
 // Accept a connection and initialize the <stream>.

@@ -3,9 +3,6 @@
 #include "Patient_Handler.hpp"
 #include "Reactor.hpp"
 
-//typedef Service_Handler<SOCK_Stream> Peer_Router;
-//typedef Connector<Peer_Router, SOCK_Connector> Peer_Connector;
-//typedef std::vector<Peer_Router>::iterator Peer_Iterator;
 typedef Acceptor<Patient_Handler> Patient_Acceptor;
 
 #define PATIENT_PORT 2003
