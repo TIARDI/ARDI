@@ -1,6 +1,7 @@
 #pragma once
 #include "Event_handler.hpp"
 #include "SOCK_stream.hpp"
+#include <string>
 
 class Service_Handler : public Event_Handler 
 {
@@ -14,7 +15,7 @@ public:
 	void set_handle(HANDLE handle);
 	HANDLE get_handle() const;
 
-private:
+protected:
 	// transport handle
 	SOCK_Stream ipc_stream_;
 };
