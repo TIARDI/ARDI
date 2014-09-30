@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "Patient_Handler.hpp"
 
-Patient_Handler::Patient_Handler()
-{}
+void Patient_Handler::open()
+{
+	handle_event(get_handle(),Event_type::READ);
+}
 
 void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 {
-
+	//Get data here
 }
 
 Patient_Handler::~Patient_Handler()

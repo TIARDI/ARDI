@@ -2,7 +2,6 @@
 #include "Event_handler.hpp"
 #include "SOCK_stream.hpp"
 
-
 class Service_Handler : public Event_Handler 
 {
 public:
