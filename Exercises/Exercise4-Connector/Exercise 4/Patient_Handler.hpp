@@ -7,5 +7,7 @@ class Patient_Handler : public Service_Handler
 {
 	//Patient_Handlers
 	void handle_event(HANDLE h, Event_type eType);
+	void open();
 	virtual ~Patient_Handler();
+
 };

@@ -2,24 +2,25 @@
 #include "Connector.hpp"
 #include <stdexcept>
 
-template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-Connector<SERVICE_HANDLER, IPC_CONNECTOR>::Connector(Reactor *reactor): reactor_(reactor)
+template <class SERVICE_HANDLER>
+Connector<SERVICE_HANDLER>::Connector(Reactor *reactor): reactor_(reactor)
 {}
 
-template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect( SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode)
+template <class SERVICE_HANDLER>
+void Connector<SERVICE_HANDLER>::connect( SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode)
 {
 	connect_service_handler(sh, remote_addr, mode);
 }
 
-template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::handle_event(HANDLE handle, Event_type et)
+template <class SERVICE_HANDLER>
+void Connector<SERVICE_HANDLER>::handle_event(HANDLE handle, Event_type et)
 { 
 	complete(handle); 
 }
 
-template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect_service_handler(
+
+template <class SERVICE_HANDLER>
+void Connector<SERVICE_HANDLER>::connect_service_handler(
 	SERVICE_HANDLER *svc_handler, 
 	const Addr &addr, 
 	Connection_Mode mode) 
@@ -40,8 +41,8 @@ virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect_service_handler(
 	}
 } 
 
-template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::complete(HANDLE handle) 
+template <class SERVICE_HANDLER>
+void Connector<SERVICE_HANDLER>::complete(HANDLE handle) 
 {
 	Connection_Map::iterator i = connection_map_.find(handle);
 
