@@ -1,7 +1,7 @@
 #pragma once
 #include "Event_handler.hpp"
 #include "Reactor.hpp"
-
+#include <map>
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
 class Connector : public Event_Handler 
@@ -9,7 +9,7 @@ class Connector : public Event_Handler
 public:
 	enum Connection_Mode { SYNC, ASYNC };
 	typedef typename IPC_CONNECTOR::PEER_ADDR Addr;
-	Connector(Reactor *reactor) : reactor_(reactor) {}
+	Connector(Reactor *reactor);
 
 	// Template Method
 	void connect(SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode);

@@ -3,20 +3,25 @@
 #include <stdexcept>
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
+Connector<SERVICE_HANDLER, IPC_CONNECTOR>::Connector(Reactor *reactor): reactor_(reactor)
+{}
+
+template <class SERVICE_HANDLER, class IPC_CONNECTOR>
 void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect( SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode)
 {
 	connect_service_handler(sh, remote_addr, mode);
 }
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::handle_event(HANDLE handle, Event_type et)
+void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::handle_event(HANDLE handle, Event_type et)
 { 
 	complete(handle); 
 }
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-Connector< SERVICE_HANDLER, IPC_CONNECTOR>::
-	connect_service_handler(SERVICE_HANDLER *svc_handler, const Addr &addr, 
+void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect_service_handler(
+	SERVICE_HANDLER *svc_handler, 
+	const Addr &addr, 
 	Connection_Mode mode) 
 {
 	try {
@@ -36,7 +41,7 @@ Connector< SERVICE_HANDLER, IPC_CONNECTOR>::
 } 
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::complete(HANDLE handle) 
+void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::complete(HANDLE handle) 
 {
 	Connection_Map::iterator i = connection_map_.find(handle);
 
@@ -45,12 +50,12 @@ virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::complete(HANDLE handle)
 
 	// we just want the value part of the <key,value>
 	SERVICE_HANDLER *svc_handler = (*i).second;
-	
+
 	// Transfer I/O Handle to <service_handler>
 	svc_handler->set_handle(handle);
 	reactor_->remove_handler(handle, WRITE_MASK);
 	connection_map_.erase(i);
-	
+
 	// connection is complete so activate handler
 	activate_service_handler(svc_handler); // calls open() hook
 }
