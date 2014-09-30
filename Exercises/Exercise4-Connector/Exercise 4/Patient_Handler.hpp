@@ -1,14 +1,12 @@
 #pragma once
 
-#include "Event_handler.hpp"
 #include <WinSock2.h>
+#include "Service_Handler.hpp"
 
-class Patient_Handler : public Event_Handler
+typedef Service_Handler<SOCK_Stream> STREAM_HANDLER;
+class Patient_Handler : public STREAM_HANDLER
 {
-public:
-	virtual ~Patient_Handler();
-
-	Patient_Handler();
+	//Patient_Handlers
 	void handle_event(HANDLE h, Event_type eType);
-	virtual HANDLE get_handle() const;
+	virtual ~Patient_Handler();
 };
