@@ -13,6 +13,7 @@ public:
 	IPC_STREAM &peer();
 	Addr &remote_addr();
 	void set_handle(HANDLE handle);
+	HANDLE get_handle();
 
 private:
 	// Template placeholder for a concrete IPC mechanism wrapper 
