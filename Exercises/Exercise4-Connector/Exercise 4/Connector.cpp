@@ -35,7 +35,7 @@ void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect_service_handler(
 			// register for asynchronously call back
 			reactor_->register_handler(this,WRITE_MASK);
 			// store <service handler *> in map
-			connection_map_[connector_.get_handle()]= svc_handler;
+			connection_map_[connector_.get_handle()] = svc_handler;
 		}
 	}
 } 
