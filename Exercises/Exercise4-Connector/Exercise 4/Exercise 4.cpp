@@ -1,11 +1,5 @@
 #include "stdafx.h"
-#include "Service_Handler.hpp"
-#include "SOCK_stream.hpp"
-#include "SOCK_Connector.hpp"
-#include "Connector.hpp"
-#include <vector>
 #include "Acceptor.hpp"
-#include "SOCK_Acceptor.hpp"
 #include "Patient_Handler.hpp"
 #include "Reactor.hpp"
 
@@ -26,6 +20,6 @@ int main()
 
 	// Event loop that accepts connection request events and processes
 	// data from a gateway
-	for (; ;)
+	for (;;)
 		Reactor::instance()->handle_events();
 }

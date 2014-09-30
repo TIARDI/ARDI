@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Acceptor.hpp"
 
 template <class SERVICE_HANDLER>
@@ -8,7 +7,7 @@ Acceptor<SERVICE_HANDLER>::Acceptor(const INET_Address &local_addr, Reactor *rea
 	peer_acceptor_.open(local_addr);
 
 	// register with <reactor>
-	reactor->register_handler(this, ACCEPT_MASK);
+	reactor->register_handler(this, ACCEPT);
 }
 
 template <class SERVICE_HANDLER>
@@ -34,7 +33,7 @@ typename SERVICE_HANDLER *Acceptor<SERVICE_HANDLER>::make_service_handler()
 template <class SERVICE_HANDLER>
 void Acceptor<SERVICE_HANDLER>::accept_service_handler(SERVICE_HANDLER * handler)
 {
-	peer_acceptor_->accept (handler->peer ());
+	peer_acceptor_.accept (handler->peer ());
 }
 
 template <class SERVICE_HANDLER>
