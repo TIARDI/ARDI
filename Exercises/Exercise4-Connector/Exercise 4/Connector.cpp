@@ -7,7 +7,7 @@ Connector<SERVICE_HANDLER>::Connector(Reactor *reactor): reactor_(reactor)
 {}
 
 template <class SERVICE_HANDLER>
-void Connector<SERVICE_HANDLER>::connect( SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode)
+void Connector<SERVICE_HANDLER>::connect( SERVICE_HANDLER *sh, const INET_Address &remote_addr, Connection_Mode mode)
 {
 	connect_service_handler(sh, remote_addr, mode);
 }
@@ -22,7 +22,7 @@ void Connector<SERVICE_HANDLER>::handle_event(HANDLE handle, Event_type et)
 template <class SERVICE_HANDLER>
 void Connector<SERVICE_HANDLER>::connect_service_handler(
 	SERVICE_HANDLER *svc_handler, 
-	const Addr &addr, 
+	const INET_Address &addr, 
 	Connection_Mode mode) 
 {
 	try {

@@ -13,7 +13,7 @@ public:
 	Connector(Reactor *reactor);
 
 	// Template Method
-	void connect(SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode);
+	void connect(SERVICE_HANDLER *sh, const INET_Address &remote_addr, Connection_Mode mode);
 
 	// Adapter Method (used in asynchronous mode)
 	virtual void handle_event(HANDLE handle, Event_type et);
@@ -21,7 +21,7 @@ public:
 protected:
 	virtual void complete(HANDLE handle);
 	virtual void connect_service_handler(SERVICE_HANDLER *svc_handler, 
-		const Addr &addr, Connection_Mode mode);
+		const INET_Address &addr, Connection_Mode mode);
 	virtual void activate_service_handler(SERVICE_HANDLER *sh);
 
 private:
