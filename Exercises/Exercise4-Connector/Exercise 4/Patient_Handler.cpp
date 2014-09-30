@@ -13,7 +13,7 @@ void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 
 HANDLE Patient_Handler::get_handle() const
 {
-	
+	return NULL;
 }
 
 Patient_Handler::~Patient_Handler()
