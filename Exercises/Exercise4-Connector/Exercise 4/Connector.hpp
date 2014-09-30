@@ -2,6 +2,7 @@
 #include "Event_handler.hpp"
 #include "Reactor.hpp"
 #include <map>
+#include <WinSock2.h>
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
 class Connector : public Event_Handler 
@@ -19,8 +20,8 @@ public:
 
 protected:
 	virtual void complete(HANDLE handle);
-	// Continued from previous slide
-	virtual void connect_service_handler(const Addr &addr, Connection_Mode mode);
+	virtual void connect_service_handler(SERVICE_HANDLER *svc_handler, 
+		const Addr &addr, Connection_Mode mode);
 	virtual void activate_service_handler(SERVICE_HANDLER *sh);
 
 private:
@@ -28,7 +29,6 @@ private:
 
 	// C++ standard library map that associates <HANDLES> with 
 	// <SERVICE_HANDLER> s for pending connections
-	typedef map<HANDLE, SERVICE_HANDLER*> Connection_Map;
-	Connection_Map connection_map_;
+	std::map<HANDLE, SERVICE_HANDLER*> connection_map_;
 	Reactor *reactor_;
 };

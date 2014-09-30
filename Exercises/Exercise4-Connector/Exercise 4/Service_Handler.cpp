@@ -29,6 +29,6 @@ void Service_Handler<IPC_STREAM>::set_handle(HANDLE handle)
 template <class IPC_STREAM>
 HANDLE Service_Handler<IPC_STREAM>::get_handle() const
 {
-		return ipc_stream_.set_handle(handle);
-	
+	return ipc_stream_.set_handle(handle);
+
 }

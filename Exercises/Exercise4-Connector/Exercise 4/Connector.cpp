@@ -19,7 +19,7 @@ void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::handle_event(HANDLE handle, Even
 }
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect_service_handler(
+virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect_service_handler(
 	SERVICE_HANDLER *svc_handler, 
 	const Addr &addr, 
 	Connection_Mode mode) 
