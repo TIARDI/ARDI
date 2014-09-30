@@ -98,9 +98,6 @@
     <ClCompile Include="Service_Handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Acceptor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Connector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

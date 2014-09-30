@@ -5,6 +5,7 @@
 
 class Patient_Handler : public Service_Handler
 {
+public:
 	//Patient_Handlers
 	void handle_event(HANDLE h, Event_type eType);
 	void open();

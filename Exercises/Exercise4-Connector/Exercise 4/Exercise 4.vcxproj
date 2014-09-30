@@ -100,7 +100,6 @@
     <ClInclude Include="winsockHandling.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="ConcreteReactor.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="Demux_Table.cpp" />
