@@ -18,9 +18,11 @@ typedef Acceptor<Patient_Handler> Patient_Acceptor;
 
 int main()
 {
-	// Initialize three concrete acceptors to listen for connections on 
-	// their well-known ports
-	Patient_Acceptor s_acceptor(PATIENT_PORT, Reactor::instance());
+	INET_Address patientAddr(PATIENT_PORT, INADDR_ANY);
+
+	// Initialize concrete acceptor to listen for connections on 
+	// well-known port
+	Patient_Acceptor s_acceptor(patientAddr, Reactor::instance());
 
 	// Event loop that accepts connection request events and processes
 	// data from a gateway
