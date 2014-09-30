@@ -81,8 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.hpp" />
-    <ClInclude Include="Bulk_Data_Router.hpp" />
-    <ClInclude Include="Command_Router.hpp" />
     <ClInclude Include="ConcreteReactor.hpp" />
     <ClInclude Include="Connector.hpp" />
     <ClInclude Include="Demux_Table.h" />
@@ -96,7 +94,6 @@
     <ClInclude Include="SOCK_Acceptor.hpp" />
     <ClInclude Include="SOCK_Connector.hpp" />
     <ClInclude Include="SOCK_stream.hpp" />
-    <ClInclude Include="Status_Router.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Thread_Manager.hpp" />

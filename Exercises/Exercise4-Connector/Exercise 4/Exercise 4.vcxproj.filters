@@ -36,15 +36,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Status_Router.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bulk_Data_Router.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Command_Router.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Service_Handler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
