@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "Acceptor.hpp"
 
-template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
-Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::Acceptor(const Addr &local_addr, 
-												  Reactor *reactor)
+template <class SERVICE_HANDLER>
+Acceptor<SERVICE_HANDLER>::Acceptor(const INET_Address &local_addr, Reactor *reactor)
 {
 	// initialize the IPC_ACCEPTOR to listen for connections
 	peer_acceptor_.open(local_addr);
@@ -12,8 +11,8 @@ Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::Acceptor(const Addr &local_addr,
 	reactor->register_handler(this, ACCEPT_MASK);
 }
 
-template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
-void Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::accept()
+template <class SERVICE_HANDLER>
+void Acceptor<SERVICE_HANDLER>::accept()
 {
 	// GoF: Factory Method – creates a new <SERVICE_HANDLER>
 	SERVICE_HANDLER *service_handler= make_service_handler();
@@ -26,20 +25,20 @@ void Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::accept()
 	activate_service_handler(service_handler);
 }
 
-template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
-typename SERVICE_HANDLER *Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::make_service_handler()
+template <class SERVICE_HANDLER>
+typename SERVICE_HANDLER *Acceptor<SERVICE_HANDLER>::make_service_handler()
 {
 	return new SERVICE_HANDLER;
 }
 
-template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
-void Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::accept_service_handler(SERVICE_HANDLER * handler)
+template <class SERVICE_HANDLER>
+void Acceptor<SERVICE_HANDLER>::accept_service_handler(SERVICE_HANDLER * handler)
 {
 	peer_acceptor_->accept (handler->peer ());
 }
 
-template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
-void Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::activate_service_handler(SERVICE_HANDLER * handler)
+template <class SERVICE_HANDLER>
+void Acceptor<SERVICE_HANDLER>::activate_service_handler(SERVICE_HANDLER * handler)
 {
 	handler->open ();
 }
