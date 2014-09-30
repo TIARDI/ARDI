@@ -2,6 +2,7 @@
 #include "Event_handler.hpp"
 #include "Reactor.hpp"
 #include "INET_Address.hpp"
+#include "SOCK_Acceptor.hpp"
 
 template <class SERVICE_HANDLER>
 class Acceptor : public Event_Handler 
@@ -17,5 +18,5 @@ protected:
 
 	virtual HANDLE get_handle() const;
 private:
-	INET_Address peer_acceptor_; // template placeholder
+	SOCK_Acceptor peer_acceptor_; // template placeholder
 };
