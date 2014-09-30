@@ -3,9 +3,13 @@
 #include "winsockHandling.hpp"
 #include <stdexcept>
 
-SOCK_Acceptor::SOCK_Acceptor (const INET_Address &addr)
+SOCK_Acceptor::SOCK_Acceptor(const INET_Address &addr) : handle_(INVALID_VALUE_FOR_HANDLE)
 {
 	open(addr);
+}
+
+SOCK_Acceptor::SOCK_Acceptor() : handle_(INVALID_VALUE_FOR_HANDLE)
+{
 }
 
 SOCK_Acceptor::~SOCK_Acceptor()

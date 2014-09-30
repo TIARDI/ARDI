@@ -20,5 +20,3 @@ protected:
 private:
 	SOCK_Acceptor peer_acceptor_; // template placeholder
 };
-
-#include "Acceptor.cpp"

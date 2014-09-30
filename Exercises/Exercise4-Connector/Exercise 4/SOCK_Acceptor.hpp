@@ -11,7 +11,8 @@ class SOCK_Acceptor
 {
 public:
 	// Initialize a passive-mode acceptor socket.
-	SOCK_Acceptor (const INET_Address &addr);
+	SOCK_Acceptor(const INET_Address &addr);
+	SOCK_Acceptor();
 
 	~SOCK_Acceptor();
 

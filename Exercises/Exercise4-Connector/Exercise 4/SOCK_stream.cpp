@@ -7,7 +7,7 @@ SOCK_Stream::SOCK_Stream(SOCKET h) : handle_(h)
 	winsockHandling::init_winsock();
 }
 
-// Default and copy constructor.
+// Default constructor.
 SOCK_Stream::SOCK_Stream() : handle_(INVALID_VALUE_FOR_HANDLE)
 {
 	winsockHandling::init_winsock();
