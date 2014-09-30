@@ -5,9 +5,10 @@
 
 class Patient_Handler : public Event_Handler
 {
-	//Patient_Handlers
-	void handle_event(HANDLE h, Event_type eType);
-	virtual HANDLE get_handle() const;	
-
+public:
 	virtual ~Patient_Handler();
+
+	Patient_Handler();
+	void handle_event(HANDLE h, Event_type eType);
+	virtual HANDLE get_handle() const;
 };
