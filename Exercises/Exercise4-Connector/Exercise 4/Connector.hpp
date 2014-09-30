@@ -9,13 +9,13 @@ class Connector : public Event_Handler
 public:
 	enum Connection_Mode { SYNC, ASYNC };
 	typedef typename IPC_CONNECTOR::PEER_ADDR Addr;
-	Connector(Reactor *reactor): reactor_(reactor);
+	Connector(Reactor *reactor) : reactor_(reactor) {}
 
 	// Template Method
-	void connect( SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode) ;
+	void connect(SERVICE_HANDLER *sh, const Addr &remote_addr, Connection_Mode mode);
 
 	// Adapter Method (used in asynchronous mode)
-	virtual void handle_event(HANDLE handle, Event_Type);
+	virtual void handle_event(HANDLE handle, Event_type et);
 
 protected:
 	virtual void complete(HANDLE handle);
