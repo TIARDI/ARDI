@@ -9,7 +9,7 @@ void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::connect( SERVICE_HANDLER *sh, co
 }
 
 template <class SERVICE_HANDLER, class IPC_CONNECTOR>
-virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::handle_event(HANDLE handle, Event_Type)
+virtual void Connector<SERVICE_HANDLER, IPC_CONNECTOR>::handle_event(HANDLE handle, Event_Type )
 { 
 	complete(handle); 
 }
