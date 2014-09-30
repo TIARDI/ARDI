@@ -108,6 +108,7 @@
     <ClCompile Include="INET_Address.cpp" />
     <ClCompile Include="Patient_Handler.cpp" />
     <ClCompile Include="Reactor.cpp" />
+    <ClCompile Include="Select_Reactor_Implementation.cpp" />
     <ClCompile Include="Service_Handler.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
     <ClCompile Include="SOCK_Connector.cpp" />

@@ -131,5 +131,8 @@
     <ClCompile Include="winsockHandling.cpp">
       <Filter>Source Files\WrapperFacade</Filter>
     </ClCompile>
+    <ClCompile Include="Select_Reactor_Implementation.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
