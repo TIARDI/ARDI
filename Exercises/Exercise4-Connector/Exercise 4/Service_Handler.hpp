@@ -7,7 +7,6 @@ class Service_Handler : public Event_Handler
 {
 public:
 	typedef typename IPC_STREAM::PEER_ADDR Addr;
-	typedef Service_Handler<SOCK_STREA
 	virtual void handle_event(HANDLE h, Event_type et);
 
 	// Hook template method, defined by a subclass
