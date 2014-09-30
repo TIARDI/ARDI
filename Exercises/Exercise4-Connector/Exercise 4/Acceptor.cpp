@@ -25,3 +25,21 @@ void Acceptor<SERVICE_HANDLER, IPC_ACCEPTOR>::accept()
 	// invoking its <open> activation hook method
 	activate_service_handler(service_handler);
 }
+
+template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
+SERVICE_HANDLER *Acceptor::make_service_handler()
+{
+	return new SERVICE_HANDLER;
+}
+
+template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
+void accept_service_handler(SERVICE_HANDLER * handler)
+{
+	peer_acceptor_->accept (handler->peer ());
+}
+
+template <class SERVICE_HANDLER, class IPC_ACCEPTOR>
+void activate_service_handler(SERVICE_HANDLER * handler)
+{
+	handler->open ();
+}
