@@ -51,15 +51,3 @@ size_t SOCK_Stream::send(const char *buf, size_t len, int flags)
 {
 	return ::send(handle_, buf, len, flags);
 }
-
-// I/O operations for "short" receives and sends.
-size_t SOCK_Stream::recv_n(char *buf, size_t len, int flags)
-{
-	return 0;
-}
-
-size_t SOCK_Stream::send_n(const char *buf, size_t len, int flags)
-{
-	return 0;
-}
-// ... other methods omitted.

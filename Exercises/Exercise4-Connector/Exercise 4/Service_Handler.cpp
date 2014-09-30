@@ -2,33 +2,27 @@
 #include "Service_Handler.hpp"
 #include "SOCK_stream.hpp"
 
-template <class IPC_STREAM>
-void Service_Handler<IPC_STREAM>::handle_event(HANDLE h, Event_type et) 
+void Service_Handler::handle_event(HANDLE h, Event_type et) 
 { 
 	open(); 
 }
 
-template <class IPC_STREAM>
-IPC_STREAM& Service_Handler<IPC_STREAM>::peer() 
+SOCK_Stream& Service_Handler::peer() 
 { 
 	return ipc_stream_; 
 }
 
-template <class IPC_STREAM>
-typename Service_Handler<IPC_STREAM>::Addr &Service_Handler<IPC_STREAM>::remote_addr() 
-{ 
-	return ipc_stream_.remote_addr(); 
+//INET_Address& Service_Handler::remote_addr() 
+//{ 
+//	return ipc_stream_.remote_addr(); 
+//}
+
+void Service_Handler::set_handle(HANDLE handle) 
+{
+	ipc_stream_.set_handle((SOCKET)handle);
 }
 
-template <class IPC_STREAM>
-void Service_Handler<IPC_STREAM>::set_handle(HANDLE handle) 
+HANDLE Service_Handler::get_handle() const
 {
-	ipc_stream_.set_handle(handle);
-}
-
-template <class IPC_STREAM>
-HANDLE Service_Handler<IPC_STREAM>::get_handle() const
-{
-	return ipc_stream_.set_handle(handle);
-
+	return (HANDLE)ipc_stream_.get_handle();
 }
