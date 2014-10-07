@@ -16,6 +16,7 @@ public:
 		// register with <reactor>
 		r->register_handler(this, ACCEPT);
 	}
+
 	virtual void handle_event(HANDLE h, Event_type et)
 	{
 		if (et == ACCEPT)
@@ -23,11 +24,12 @@ public:
 			accept();
 		}
 	}
+
 protected:
 	virtual void accept()
 	{
 		// GoF: Factory Method – creates a new <SERVICE_HANDLER>
-		SERVICE_HANDLER *service_handler= make_service_handler();
+		SERVICE_HANDLER *service_handler = make_service_handler();
 
 		// Hook method that accepts a connection passively
 		accept_service_handler(service_handler);

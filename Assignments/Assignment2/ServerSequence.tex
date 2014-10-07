@@ -12,45 +12,61 @@ This means it can call the one of the following three classes:
 	\item \code{Log\_EventHandler}
 	\item \code{PatientValue\_EventHandler}
 \end{itemize}
+
 These calls are all shown in Figure \ref{fig:SererEventHandler} as a common sequence diagram.
 \newpage
 \begin{figure}[htbp]
 \begin {sequencediagram}
 	\newhiddenthread {hid}{:hidden}
 	\newinst[0.4]{alm}{:EventHandler}
-	\newinst[1.1]{sock}{:SOCK\_stream}
-	\newthreadmargin{rea}{:Reactor}
+	\newinst[0.5]{sock}{:SOCK\_Acceptor}
+	\newinst{pait}{:Patient\_Handler}
+
+	% \newthreadmargin[1.7]{rea}{:Reactor}
 
 	\begin{messcall}{hid}{Handle\_event(h, eType)}{alm}
 
-		\begin{sdblock}{if}{eType == READ}
-			\begin{call}{alm}{recv(\dots)}{sock}{res}
-			\end{call}
-
-			\begin{sdblock}{if}{res == 0}
-				\begin{messcall}{alm}{remove\_handler(this,eType)}{rea}
-				\end{messcall}
-
-				\mess{alm}{return}{hid}
-
-			\end{sdblock}
-
-			\begin{callself}{alm}{PrintMessage}{}
+		\begin{callself}{alm}{Accept()}{}
+			\begin{callself}{alm}{make\_service\_handler}{SERVICE\_HANDLER}
 			\end{callself}
-		\end{sdblock}
 
-		\begin{sdblock}{else}{}
-			\begin{call}{alm}{remove\_handler(this, eType)}{rea}{}
-			\end{call}
-		\end{sdblock}
+			\begin{callself}{alm}{accept\_service\_handler}{}
+				\begin{call}{alm}{accept(handler->peer())}{sock}{}
+				\end{call}
+			\end{callself}
+
+			\begin{callself}{alm}{activate\_service\_handler(\dots)}{}
+				\begin{call}{alm}{open()}{pait}{}
+				\end{call}
+			\end{callself}
+		\end{callself}
+
+		% \begin{sdblock}{if}{eType == READ}
+		% 	\begin{call}{alm}{recv(\dots)}{sock}{res}
+		% 	\end{call}
+
+		% 	\begin{sdblock}{if}{res == 0}
+		% 		\begin{messcall}{alm}{remove\_handler(this,eType)}{rea}
+		% 		\end{messcall}
+
+		% 		\mess{alm}{return}{hid}
+
+		% 	\end{sdblock}
+
+		% 	\begin{callself}{alm}{PrintMessage}{}
+		% 	\end{callself}
+		% \end{sdblock}
+
+		% \begin{sdblock}{else}{}
+		% 	\begin{call}{alm}{remove\_handler(this, eType)}{rea}{}
+		% 	\end{call}
+		% \end{sdblock}
 
 	\end{messcall}
 
-
-
 \end{sequencediagram}
 
-\caption{Server's EventHandlers}
+\caption{Server's EventHandler}
 \label{fig:SererEventHandler}
 \end{figure}
 
