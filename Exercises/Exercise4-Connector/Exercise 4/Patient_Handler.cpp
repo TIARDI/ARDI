@@ -3,11 +3,12 @@
 #include "Reactor.hpp"
 #include <array>
 #include <iostream>
+#include <thread>
+#include "LF_Event_Handler.hpp"
 
 void Patient_Handler::open()
 {
-	Reactor::instance()->register_handler(this, (Event_type)(READ|WRITE));
-}
+	LF_Event_Handler* lf_eh = new LF_Event_Handler(this, LF_Thread_Pool::Instance());	Reactor::instance()->register_handler(lf_eh, (Event_type)(READ|WRITE));}
 
 void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 {
@@ -51,6 +52,8 @@ void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 			sendbuffer.clear();
 		}
 	}
+
+	//std::this_thread::sleep_for(std::chrono::seconds::duration(10));
 }
 
 Patient_Handler::~Patient_Handler()

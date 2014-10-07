@@ -8,7 +8,12 @@ public:
 	LF_Event_Handler(Event_Handler *eh, LF_Thread_Pool *tp) : concrete_event_handler_(eh), thread_pool_(tp)
 	{}
 
-	virtual void Handle_Event(HANDLE handle, Event_type eType)
+	~LF_Event_Handler()
+	{
+		delete concrete_event_handler_;
+	}
+
+	virtual void handle_event(HANDLE handle, Event_type eType)
 	{
 		thread_pool_->deactivate_handle(handle, eType);
 		thread_pool_->promote_new_leader();
@@ -16,6 +21,11 @@ public:
 		concrete_event_handler_->handle_event(handle, eType);
 
 		thread_pool_->reactivate_handler(handle, eType);
+	}
+
+	HANDLE get_handle() const
+	{
+		return concrete_event_handler_->get_handle();
 	}
 
 private:
