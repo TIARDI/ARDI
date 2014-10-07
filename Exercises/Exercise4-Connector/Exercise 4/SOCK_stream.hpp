@@ -16,10 +16,8 @@ public:
 	void close();
 	void set_handle(SOCKET h);
 	SOCKET get_handle() const;
-	size_t recv(char *buf, size_t len, int flags);
-	size_t send(const char *buf, size_t len, int flags);
-	size_t recv_n(char *buf, size_t len, int flags);
-	size_t send_n(const char *buf, size_t len, int flags);
+	int recv(char *buf, size_t len, int flags = 0);
+	size_t send(const char *buf, size_t len, int flags = 0);
 
 private:
 	// Socket handle for exchanging socket data.

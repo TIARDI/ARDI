@@ -42,7 +42,7 @@ SOCKET SOCK_Stream::get_handle () const
 }
 // Regular I/O operations.
 
-size_t SOCK_Stream::recv(char *buf, size_t len, int flags)
+int SOCK_Stream::recv(char *buf, size_t len, int flags)
 {
 	return ::recv(handle_, buf, len, flags);
 }
