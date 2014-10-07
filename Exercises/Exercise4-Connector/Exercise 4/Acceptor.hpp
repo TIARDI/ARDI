@@ -36,18 +36,22 @@ protected:
 		// invoking its <open> activation hook method
 		activate_service_handler(service_handler);
 	}
+	
 	virtual SERVICE_HANDLER *make_service_handler()
 	{
 		return new SERVICE_HANDLER;
 	}
+	
 	virtual void accept_service_handler(SERVICE_HANDLER *handler)
 	{
 		peer_acceptor_.accept (handler->peer ());
 	}
+	
 	virtual void activate_service_handler(SERVICE_HANDLER *handler)
 	{
 		handler->open();
 	}
+
 	virtual HANDLE get_handle() const
 	{
 		return (HANDLE)peer_acceptor_.get_socket();
