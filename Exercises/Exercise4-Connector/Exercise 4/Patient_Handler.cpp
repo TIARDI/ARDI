@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "Patient_Handler.hpp"
+#include "Reactor.hpp"
 
 void Patient_Handler::open()
 {
-	handle_event(get_handle(),Event_type::READ);
+	Reactor::instance()->register_handler(this, WRITE);
 }
 
 void Patient_Handler::handle_event(HANDLE h, Event_type eType)

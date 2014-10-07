@@ -23,6 +23,11 @@ public:
 	// Accept a connection and initialize the <stream>.
 	void accept (SOCK_Stream &s);
 
+	SOCKET get_socket() const
+	{
+		return handle_;
+	}
+
 private:
 	SOCKET handle_; // Socket handle factory.
 };

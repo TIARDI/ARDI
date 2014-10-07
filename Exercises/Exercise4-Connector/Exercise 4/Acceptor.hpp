@@ -16,7 +16,13 @@ public:
 		// register with <reactor>
 		r->register_handler(this, ACCEPT);
 	}
-	virtual void handle_event(HANDLE h, Event_type et);
+	virtual void handle_event(HANDLE h, Event_type et)
+	{
+		if (et == ACCEPT)
+		{
+			accept();
+		}
+	}
 protected:
 	virtual void accept()
 	{
@@ -40,9 +46,12 @@ protected:
 	}
 	virtual void activate_service_handler(SERVICE_HANDLER *handler)
 	{
-		handler->open ();
+		handler->open();
 	}
-	virtual HANDLE get_handle() const;
+	virtual HANDLE get_handle() const
+	{
+		return (HANDLE)peer_acceptor_.get_socket();
+	}
 private:
 	SOCK_Acceptor peer_acceptor_; // template placeholder
 };
