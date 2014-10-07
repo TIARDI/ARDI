@@ -55,6 +55,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,15 +78,41 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PatientRequester.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\ConcreteReactor.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Connector.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Demux_Table.h" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Event_handler.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\INET_Address.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor_Implementation.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Select_Reactor_Implementation.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Service_Handler.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Acceptor.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Connector.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_stream.hpp" />
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\winsockHandling.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exercise4client.cpp" />
+    <ClCompile Include="PatientRequester.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\ConcreteReactor.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Connector.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Demux_Table.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\INET_Address.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Select_Reactor_Implementation.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Service_Handler.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Acceptor.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Connector.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_stream.cpp" />
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\winsockHandling.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

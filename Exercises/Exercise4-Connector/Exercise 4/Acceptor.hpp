@@ -19,6 +19,7 @@ public:
 		LF_Event_Handler* lf_Eh = new LF_Event_Handler(this, LF_Thread_Pool::Instance());
 		r->register_handler(lf_Eh, ACCEPT);
 	}
+
 	virtual void handle_event(HANDLE h, Event_type et)
 	{
 		if (et == ACCEPT)
@@ -26,11 +27,12 @@ public:
 			accept();
 		}
 	}
+
 protected:
 	virtual void accept()
 	{
 		// GoF: Factory Method – creates a new <SERVICE_HANDLER>
-		SERVICE_HANDLER *service_handler= make_service_handler();
+		SERVICE_HANDLER *service_handler = make_service_handler();
 
 		// Hook method that accepts a connection passively
 		accept_service_handler(service_handler);

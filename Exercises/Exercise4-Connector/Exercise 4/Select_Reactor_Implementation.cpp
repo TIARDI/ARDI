@@ -70,11 +70,19 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 	{
 		for (auto handlerKvp : iterTable)
 		{
-			if (FD_ISSET((SOCKET)handlerKvp.first, &read_set) ||
-				FD_ISSET((SOCKET)handlerKvp.first, &write_set) ||
-				FD_ISSET((SOCKET)handlerKvp.first, &except_set))
+			if (FD_ISSET((SOCKET)handlerKvp.first, &read_set))
 			{
-				handlerKvp.second.handler->handle_event(handlerKvp.first, handlerKvp.second.type);
+				handlerKvp.second.handler->handle_event(handlerKvp.first, READ);
+			}
+
+			if( FD_ISSET((SOCKET)handlerKvp.first, &write_set))
+			{
+				handlerKvp.second.handler->handle_event(handlerKvp.first, WRITE);
+			}
+
+			if( FD_ISSET((SOCKET)handlerKvp.first, &except_set))
+			{
+				handlerKvp.second.handler->handle_event(handlerKvp.first, EXCEPT);
 			}
 		}
 	}
