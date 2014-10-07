@@ -34,11 +34,11 @@ protected:
 	{
 		return new SERVICE_HANDLER;
 	}
-	virtual void accept_service_handler(SERVICE_HANDLER *)
+	virtual void accept_service_handler(SERVICE_HANDLER *handler)
 	{
 		peer_acceptor_.accept (handler->peer ());
 	}
-	virtual void activate_service_handler(SERVICE_HANDLER *)
+	virtual void activate_service_handler(SERVICE_HANDLER *handler)
 	{
 		handler->open ();
 	}
