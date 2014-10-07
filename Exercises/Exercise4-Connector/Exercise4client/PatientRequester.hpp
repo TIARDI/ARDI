@@ -6,7 +6,7 @@
 class PatientRequester : public Service_Handler
 {
 public:
-	PatientRequester(Reactor* reactor, INET_Address addr, bool& running);
+	PatientRequester(Reactor* reactor, bool& running);
 	virtual void open();
 	virtual void handle_event(HANDLE h, Event_type eType);
 	virtual ~PatientRequester(void);

@@ -1,12 +1,11 @@
 #pragma once
-#include "Event_handler.hpp"
+//#include "Event_handler.hpp"
 #include "SOCK_Connector.hpp"
 #include "Reactor.hpp"
-#include <map>
 #include <WinSock2.h>
 
 template <class SERVICE_HANDLER>
-class Connector : public Event_Handler 
+class Connector 
 {
 public:
 	Connector(){}
@@ -17,15 +16,7 @@ public:
 		connect_service_handler(sh, remote_addr);
 	}
 
-	// Adapter Method (used in asynchronous mode)
-	virtual void handle_event(HANDLE handle, Event_type et)
-	{ 
-		//complete(handle); 
-	}
-
 protected:
-	//virtual void complete(HANDLE handle){...}
-	
 	virtual void connect_service_handler(SERVICE_HANDLER *svc_handler, 
 		const INET_Address &addr)
 	{
