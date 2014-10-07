@@ -40,7 +40,7 @@ void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 		else if (val == "444444-4444")
 			sendbuffer = "Christoffer,Werge,EBOLA";
 		else
-			sendbuffer = "Unknown patient\n\r";
+			sendbuffer = "Unknown patient";
 	} 
 	else if(eType == WRITE)
 	{
