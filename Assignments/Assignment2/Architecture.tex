@@ -1,0 +1,32 @@
+%!TEX root = Main.tex
+\documentclass[Main]{subfiles}
+
+\begin{document}
+
+\section{Discussion of architecture decisions}
+
+To create a server and a client, we implement them using the Acceptor/connector pattern along with the Reactor pattern.
+
+
+First of all the connection should be as easy as possible for the client. 
+By using the HTTP-protocol, the client do not need anything special to establish a connection since this is standard for all platforms.
+This also means that the server must apply to the HTTP-protocol and other clients will be able to communicate with it through a given port.
+\\
+\\
+The server will be using different patterns from the TIARDI lessons:
+\begin{itemize}
+	\item Acceptor/Connector
+	\item Wrapper Facade
+	\item Reactor
+\end{itemize}
+The Wrapper Facade pattern can be used independently.
+The Reactor can be used separately, but is easier to use if a wrapper has been applied to the functions. 
+The Acceptor/Connector is very closely linked to the Reactor and will be very difficult to use without it.
+\\
+\\
+Building exercise 1 was done with as much cross-platform as possible since the group's mac-user wanted to test it natively. 
+Exercise 2, however, was only Windows-specific, since it only was build in Microsoft's Visual Studio.	
+
+
+
+\end{document}
