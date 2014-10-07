@@ -1,0 +1,60 @@
+%!TEX root = Main.tex
+\documentclass[Main]{subfiles}
+
+\begin{document}
+
+\subsection{Sequence diagram}
+Figure \ref{seq:reactorSeq} show the \code{Reactor}'s sequence diagram.
+The \code{handle\_event(HANDLE, type)} will call the class of the given type.
+This means it can call the one of the following three classes:
+\begin{itemize}
+	\item \code{Alarm\_EventHandler}
+	\item \code{Log\_EventHandler}
+	\item \code{PatientValue\_EventHandler}
+\end{itemize}
+These calls are all shown in Figure \ref{fig:SererEventHandler} as a common sequence diagram.
+\newpage
+\begin{figure}[htbp]
+\begin {sequencediagram}
+	\newhiddenthread {hid}{:hidden}
+	\newinst[0.4]{alm}{:EventHandler}
+	\newinst[1.1]{sock}{:SOCK\_stream}
+	\newthreadmargin{rea}{:Reactor}
+
+	\begin{messcall}{hid}{Handle\_event(h, eType)}{alm}
+
+		\begin{sdblock}{if}{eType == READ}
+			\begin{call}{alm}{recv(\dots)}{sock}{res}
+			\end{call}
+
+			\begin{sdblock}{if}{res == 0}
+				\begin{messcall}{alm}{remove\_handler(this,eType)}{rea}
+				\end{messcall}
+
+				\mess{alm}{return}{hid}
+
+			\end{sdblock}
+
+			\begin{callself}{alm}{PrintMessage}{}
+			\end{callself}
+		\end{sdblock}
+
+		\begin{sdblock}{else}{}
+			\begin{call}{alm}{remove\_handler(this, eType)}{rea}{}
+			\end{call}
+		\end{sdblock}
+
+	\end{messcall}
+
+
+
+\end{sequencediagram}
+
+\caption{Server's EventHandlers}
+\label{fig:SererEventHandler}
+\end{figure}
+
+
+
+
+\end{document}

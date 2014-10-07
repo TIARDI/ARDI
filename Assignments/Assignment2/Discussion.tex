@@ -1,0 +1,24 @@
+%!TEX root = Main.tex
+\documentclass[Main]{subfiles}
+
+\begin{document}
+
+\chapter{Discussion of results}
+The primary concern of this assignment was to implement a WrapperFacade for the socket handling, and a Reactor to handle the different types of messages that would be passed through the WrapperFacade.
+These result of these parts of the system are therefore the ones that will be discussed.
+\subsection{WrapperFacade}
+For this implementation where it was a demand that it should run on a Win32 machine, the WrapperFacade is redundant.
+A single layer of abstraction could have done the same thing as the WrapperFacade currently does.
+However, if the system where to be deployed on multiple platforms (e.g. Linux and Win32), the true power of the WrapperFacade would be shown.
+Right now only the Win32 part of the facade is implemented, however if it was to be run on multiple platforms libraries would be added that supported each platform. 
+The only thing that would change, is which libraries would be added to the implementation and since this would already be handled, there would be no need to change anything when deploying on a different platform. \\
+We only deviation from the standard implementation as seen in the book is, that some helpers functions where added for initializing and closing of the sockets, created from the winsock library.
+
+\subsection{Reactor}
+Three types of messages where supposed to be passed through the methods of the created WrapperFacade. These messages should be handled differently by the use of a Reactor pattern. The Reactor has been created using the GoF patterns "Singleton" and "Bridge".
+These patterns will not be discussed further, as they are not seen as important for the result.
+The Reactor pattern handles all messages, by listening on file descriptors set up to unique TCP/IP port for each of the message types. These file descriptors are matched with a event handler that would be accessed when a new message is available on the current port, as in that event is raised.
+This is used both on the client- and server side, where on the client side, it is used to figuring out when a port is ready to be written to, and on the server it is used to handle incomming messages, and dispatching an event handler capable of handling them. This coupling of file descriptors and event handlers is done in the demux\_table class, where they are mapped together as a key-value pair where the key would be the file descriptor and the value would be the event handler. \\
+When viewing the client and the server, no real functionality is implied as is the purpose of this pattern. All the handlers and ports are added to the reactor, and the reactor is told to handle the events as they come until the program is stopped.\\
+The Reactor is by the book, and has been tested with multiple clients connecting to one socket where everything worked. 
+\end{document}
