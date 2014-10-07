@@ -103,7 +103,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\ConcreteReactor.cpp" />
-    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Connector.cpp" />
     <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Demux_Table.cpp" />
     <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\INET_Address.cpp" />
     <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor.cpp" />

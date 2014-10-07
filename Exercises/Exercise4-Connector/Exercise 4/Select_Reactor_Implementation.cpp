@@ -33,6 +33,8 @@ void Select_Reactor_Implementation::register_handler(Event_Handler *eh, Event_ty
 
 void Select_Reactor_Implementation::remove_handler(Event_Handler *eh, Event_type et)
 {
+	(void)et; //unused function
+
 	auto mapItr = demuxTable.find(eh->get_handle());
 	if (mapItr != demuxTable.end())
 	{

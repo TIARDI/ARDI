@@ -86,9 +86,6 @@
     <ClCompile Include="Exercise4client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Connector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Service_Handler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

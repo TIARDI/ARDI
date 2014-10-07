@@ -9,7 +9,7 @@ SOCK_Connector::SOCK_Connector()
 	winsockHandling::init_winsock();
 }
 
-void SOCK_Connector::connect(SOCK_Stream& server, INET_Address& addr)
+void SOCK_Connector::connect(SOCK_Stream& server, const INET_Address& addr)
 {
 	int ret = 0;
 	const sockaddr* ad = addr.addr();
