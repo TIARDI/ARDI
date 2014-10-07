@@ -84,6 +84,12 @@
     <ClInclude Include="Reactor.hpp">
       <Filter>Header Files\Reactor</Filter>
     </ClInclude>
+    <ClInclude Include="LF_Thread_Pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LF_Event_Handler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -129,6 +135,9 @@
       <Filter>Source Files\Reactor</Filter>
     </ClCompile>
     <ClCompile Include="Connector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LF_Thread_Pool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,73 +4,16 @@
 \begin{document}
 
 \section{Patterns used in the solution}\label{sec:patterns}
-This section describes the different patterns used in this solution, and what they are used for.
-\subsection{Wrapper Façade}
-With Wrapper Façade you can encapsulate the basic C functions from the Operating System, and provide a Object Oriented Interface you can use instead.\\
-Because it's an Interface without connection to the underlying OS, it can be implemented on multiple platforms and thereby enabling using the same interface no matter the platform.\\
-This can speed up the development process, because the modules can be reused in different projects, and the application code isn't dependent on OS specific code. The class diagram for the WrapperFacade handling the socket communication can be seen in figure \ref{fig:wrapperfacadeuml}
+This section describes the different patterns used in this solution, and what they are used for. 
+It should be noted that through exercise one to three, the patterns WrapperFaçade, Reactor, Bridge and Singleton where used, and so won't be mentioned further, unless they are required to. We choose to only specify the new patterns used.
 
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=1.0\textwidth]{WrapperFacadeClassDiagram}
-\caption{Class diagram for the WrapperFacade for handling of communication over TCP/IP}
-\label{fig:wrapperfacadeuml}
-\end{figure}
+\subsection{Acceptor/Connector}
+The acceptor/connector pattern were already used to a certain degree in exercise three, however that was only a pseudo pattern, not the POSA2 pattern. 
+Here the full pattern was implemented.
+The Acceptor handles the server-side dispatching, accessing the service that should be handled, based on what event is raised.
+The Connector registers the services on the client side, so that when a new connection should occur, the dispatcher would access the service handler to figure out, what to do with that type of connection.
 
-
-\subsection{Reactor}
-A Reactor can handle multiple requests from clients to a single application.\\
-It collects the requests, Demultiplexes and executes them in a synchronous manner.\\
-Because the Reactor executes events on a single thread, there will be no concurrency concerns. Class diagram for the reactor incorporating bridge and singleton patterns is shown in figure \ref{fig:reactoruml}. The sequence for the \code{handle\_event()} function is outlined in figure \ref{seq:reactorSeq} - note that error handling has been omitted.
-
-\begin{figure}[hbtp]
-\centering
-\includegraphics[width=1.0\textwidth]{exercise1reactor}
-\caption{Class diagram for reactor incorporating bridge and singleton patterns.}
-\label{fig:reactoruml}
-\end{figure}
-
-\begin{figure}
-\begin {sequencediagram}
-	\newinst[0]{main}{<Caller>}
-	\newinst[1.6]{rea}{: Reactor}
-	\newinst[1.8]{demu}{: DemuxTable}
-	\newinst[0.4]{wins}{:WinSock2}
-	\newinst[0.4]{evt}{:Event\_Handler}
-
-	\begin{messcall}{main}{handle\_events()}{rea}
-			\begin{messcall}{rea}{convert\_to\_fd\_sets()}{demu}
-			\end{messcall}
-
-			\begin{call}{rea}{select(\dots)}{wins}{ret}
-			\end{call}
-
-			\begin{sdblock}{Loop}{for each event handler}
-				\begin{messcall}{rea}{handle\_event(Handle, type)}{evt}
-				\end{messcall}
-			\end{sdblock}
-
-		\end{messcall}
-
-\end{sequencediagram}
-
-\caption{Sequence diagram for reactor}
-\label{seq:reactorSeq}
-\end{figure}
-
-
-\subsection{Connector / Acceptor}
-By encapsulating the initialization code, the Application code will be cleaner, and the action of creating a Client / Server design can be massively simplified.\\
-When using the Connector / Acceptor pattern, the network initialization is hidden, and the application can focus on the tasks at hand.
-This also gives a higher re usability and a lower coupling with the application.\\
-This can be used together with the \code{Reactor}, to ensure the incoming requests are performed synchronous. 
-\subsection{Bridge Pattern}
-Used to create a gap between the abstraction and the implementation of a framework.\\
-The functional implementations can then be created with Polymorphism. Class diagram for the reactor incorporating bridge and singleton patterns is shown in figure \ref{fig:reactoruml}.
-
-\subsection{Singleton}
-To ensure only a single instance of the object exists, it can be converted into a Singleton.
-By hiding the constructor and only make it accesable via a static function, the object can be created, and reused for the duration of the application. This gives the benefit of every other object can access the same instance and modify it's data.\\
-In this solution it have been used together with the \code{Reactor}. Class diagram for the reactor incorporating bridge and singleton patterns is shown in figure \ref{fig:reactoruml}.
+\subsection*{Leader/Follower}
+The Leader/Follower pattern handles the multi-threading of the server. The concept deals with a thread queue, and three different states; Leader, Follower and Processing. In the thread pool, a single thread is the leader, and the one that will handle incoming events. When an incoming event comes along, the leader thread takes it, elects a new leader and processes the event. If another event comes along, while the old leader processes the previous event, the new leader handles that event and elects a new leader and so on. When a processing thread is done, it checks to see if anyone is leader. If there is, then it becomes a follower, otherwise it becomes a leader.
 
 \end{document}
