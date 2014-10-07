@@ -5,18 +5,18 @@
 
 \chapter{Introduction}
 \section{Requirements}
-This journal seeks to describe exercises one to three from the course TIARDI as done by group two. \\
-The main task of the assignment consisted of making a server/client application based on the reactor- and wrapperfacade pattern. 
-These patterns will be described in more detail in the next chapter. 
-The journal will generally be split into three parts in each chapter, unless something else is specified. 
-These parts will describe the work done in exercise one, two and three separately, but also describing how they fit in the whole implementation of the reactor pattern. \\
+This journal seeks to describe exercises four and five from the course TIARDI as done by group two. \\
+The main task of the assignment consisted of making a server/client application based on the reactor- and wrapperfacade pattern. That is, it reuses a lot of the work done in assignment one to three and as such, the sequence diagrams for this, can be found in  that journal. The goal of this task, was to extend the reactor- and wrapperfacade with a acceptor/connector pattern and making the server asynchronous, using either leader/follower, half-sync/half-async or the proactor pattern.
+We chose to use the leader follower pattern.
+The patterns used will be described further in the next chapters, however the work done in exercise one to three, can be found in our previous journal.
+Each section is split up into two parts (one for each assignment) unless other is specified.\\
 The work has been completed in visual studio, using C++11.
 
 \subsection{Requirements of assignment 4}
-This assignment should function as the server of the reactor pattern and should furthermore use the wrapper-facade implementation of socket connections done in assignment 1. 
+This assignment should implement the server and the client, where the acceptor/connector pattern where to be used. It should be based on the wrapperfacade and reactor created in assignment one to three.
 
 \subsection{Requirements of assignment 5}
-This assignment should finalize the work done in assignment 2, adding a client to the reactor pattern and thereby finishing it. the client connections should also be created using event-handlers, and use the client part of the wrapper-facade.
+This assignment should add multi threading to the server from assignment four (using leader/follower or half-sync/half-async).
 
 \subfile{Patterns}
 
