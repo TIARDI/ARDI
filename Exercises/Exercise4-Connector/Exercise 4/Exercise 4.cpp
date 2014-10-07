@@ -10,7 +10,7 @@ typedef Acceptor<Patient_Handler> Patient_Acceptor;
 
 #define PATIENT_PORT 2003
 
-const int MAX_THREADS = 1;
+const int MAX_THREADS = 2;
 
 void worker_function(LF_Thread_Pool *tp)
 {
@@ -30,6 +30,7 @@ int main()
 	for (int i = 0; i < MAX_THREADS - 1; i++)
 	{
 		std::thread t(worker_function, tp);
+		t.detach();
 	}
 
 	tp->join();

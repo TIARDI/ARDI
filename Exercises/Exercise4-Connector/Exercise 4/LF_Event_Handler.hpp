@@ -8,6 +8,11 @@ public:
 	LF_Event_Handler(Event_Handler *eh, LF_Thread_Pool *tp) : concrete_event_handler_(eh), thread_pool_(tp)
 	{}
 
+	~LF_Event_Handler()
+	{
+		delete concrete_event_handler_;
+	}
+
 	virtual void handle_event(HANDLE handle, Event_type eType)
 	{
 		thread_pool_->deactivate_handle(handle, eType);
