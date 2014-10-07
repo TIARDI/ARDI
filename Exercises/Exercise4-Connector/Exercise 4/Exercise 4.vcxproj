@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConcreteReactor.cpp" />
-    <ClCompile Include="Connector.cpp" />
     <ClCompile Include="Demux_Table.cpp" />
     <ClCompile Include="Exercise 4.cpp" />
     <ClCompile Include="INET_Address.cpp" />

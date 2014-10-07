@@ -134,9 +134,6 @@
     <ClCompile Include="Select_Reactor_Implementation.cpp">
       <Filter>Source Files\Reactor</Filter>
     </ClCompile>
-    <ClCompile Include="Connector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LF_Thread_Pool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
