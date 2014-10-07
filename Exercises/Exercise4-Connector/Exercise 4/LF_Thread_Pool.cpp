@@ -3,29 +3,29 @@
 
 void LF_Thread_Pool::join(int timeout)
 {
-	mutex_.lock();
+	std::unique_lock<std::mutex> lock(mutex_);
 
 	for (;;)
 	{
-		while (leader_thread_ == std::thread::id())
+		while (leader_thread_ != std::thread::id())
 		{
-			followers_condition_.wait_for(std::unique_lock<std::mutex>(mutex_), std::chrono::seconds(timeout));
+			followers_condition_.wait(lock);
 		}
 
 		leader_thread_ = std::this_thread::get_id();
 
-		mutex_.unlock();
+		lock.unlock();
 
-		reactor_->handle_events();
+		reactor_->handle_events(0);
 
-		mutex_.lock();
+		lock.lock();
 	}
-	mutex_.unlock();
+	lock.unlock();
 }
 
 void LF_Thread_Pool::promote_new_leader()
 {
-	mutex_.lock();
+	std::unique_lock<std::mutex> lock(mutex_);
 
 	if (leader_thread_ != std::this_thread::get_id())
 		throw;
@@ -34,7 +34,7 @@ void LF_Thread_Pool::promote_new_leader()
 
 	followers_condition_.notify_all();
 
-	mutex_.unlock();
+	lock.unlock();
 }
 
 void LF_Thread_Pool::deactivate_handle(HANDLE handle, Event_type eType)
@@ -45,4 +45,10 @@ void LF_Thread_Pool::deactivate_handle(HANDLE handle, Event_type eType)
 void LF_Thread_Pool::reactivate_handler(HANDLE handle, Event_type eType)
 {
 
+}
+
+LF_Thread_Pool* LF_Thread_Pool::Instance()
+{
+	static LF_Thread_Pool tp;
+	return &tp;
 }

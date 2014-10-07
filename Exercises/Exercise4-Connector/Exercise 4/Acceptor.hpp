@@ -3,6 +3,7 @@
 #include "Reactor.hpp"
 #include "INET_Address.hpp"
 #include "SOCK_Acceptor.hpp"
+#include "LF_Event_Handler.hpp"
 
 template <class SERVICE_HANDLER>
 class Acceptor : public Event_Handler 
@@ -14,7 +15,9 @@ public:
 		peer_acceptor_.open(local_addr);
 
 		// register with <reactor>
-		r->register_handler(this, ACCEPT);
+
+		LF_Event_Handler* lf_Eh = new LF_Event_Handler(this, LF_Thread_Pool::Instance());
+		r->register_handler(lf_Eh, ACCEPT);
 	}
 	virtual void handle_event(HANDLE h, Event_type et)
 	{
