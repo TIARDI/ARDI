@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "LF_Thread_Pool.h"
 
-
 void LF_Thread_Pool::join(int timeout)
 {
 	mutex_.lock();

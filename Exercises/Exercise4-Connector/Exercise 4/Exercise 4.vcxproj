@@ -86,6 +86,7 @@
     <ClInclude Include="Demux_Table.h" />
     <ClInclude Include="Event_handler.hpp" />
     <ClInclude Include="INET_Address.hpp" />
+    <ClInclude Include="LF_Event_Handler.hpp" />
     <ClInclude Include="LF_Thread_Pool.h" />
     <ClInclude Include="Patient_Handler.hpp" />
     <ClInclude Include="Reactor.hpp" />
