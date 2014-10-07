@@ -5,9 +5,9 @@
 
 \section{Discussion of architecture decisions}
 
-To create a server and a client, some decision must be made about how the connection will be established how the server will handle multiple connections.
-\\
-\\
+To create a server and a client, we implement them using the Acceptor/connector pattern along with the Reactor pattern.
+
+
 First of all the connection should be as easy as possible for the client. 
 By using the HTTP-protocol, the client do not need anything special to establish a connection since this is standard for all platforms.
 This also means that the server must apply to the HTTP-protocol and other clients will be able to communicate with it through a given port.
