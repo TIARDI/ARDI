@@ -5,12 +5,4 @@
 
 \subsection{Intro to design of client}
 
-The client is designed to be a single program, that send a message which the server must support. 
-It is described in the assignment as such a user can send a CPR number to the server and receive CPR numbers from it as well.
-
-The design used for this exercise uses a connection to keep a connection open, so the client can send multiple messages.
-A reactor is used to demultiplex the events of the associated sockets. 
-Each handler uses the wrapper facade classes \code{Sock\_Connector} and \code{Sock\_stream} to handle connections to the server.
-The server uses the Acceptor pattern for incomming events while the client uses the Connector pattern for initiating the connection.
-
 \end{document}
