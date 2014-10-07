@@ -2,6 +2,7 @@
 #include "Patient_Handler.hpp"
 #include "Reactor.hpp"
 #include <array>
+#include <iostream>
 
 void Patient_Handler::open()
 {
@@ -16,12 +17,15 @@ void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 	auto res = ipc_stream_.recv(buffer.data(),buffer.size() - 1);
 	if (res == 0)
 	{
+		std::cout << "SERVER: Client closed connection." << std::endl;
 		Reactor::instance()->remove_handler(this, eType);
 		return;
 	}
 
 	std::string val(buffer.data());
-	val.erase(std::remove_if(val.begin(), val.end(), ::isspace), val.end());
+	val.erase(std::remove_if(val.begin(), val.end(), ::isspace), val.end()); //trim whitespace
+
+	std::cout << "SERVER: Client sent request: " << val << std::endl;
 
 	std::string sendbuffer;
 	if (val == "111111-1111")
@@ -34,6 +38,8 @@ void Patient_Handler::handle_event(HANDLE h, Event_type eType)
 		sendbuffer = "Christoffer,Werge,Herpes";
 	else
 		sendbuffer = "Unknown patient\n\r";
+
+	std::cout << "SERVER: Sending response: " << sendbuffer << std::endl;
 
 	ipc_stream_.send(sendbuffer.c_str(), sendbuffer.size() + 1);
 }
