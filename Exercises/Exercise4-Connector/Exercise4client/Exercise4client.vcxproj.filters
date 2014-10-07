@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Reactor">
+      <UniqueIdentifier>{15463b3a-4b95-4713-8ae2-342f9dd91749}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WrapperFacade">
+      <UniqueIdentifier>{407aa292-1ad4-4f20-b461-aee18e91b3df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WrapperFacade">
+      <UniqueIdentifier>{4a8b5c6b-af80-40de-a907-0f57cc747aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reactor">
+      <UniqueIdentifier>{5f48b0a2-db6b-4cfe-bcc3-2a9ef64d91de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,12 +36,90 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Connector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Event_handler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Service_Handler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor_Implementation.hpp">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\ConcreteReactor.hpp">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor.hpp">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Select_Reactor_Implementation.hpp">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Acceptor.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Connector.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_stream.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\INET_Address.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\winsockHandling.hpp">
+      <Filter>Header Files\WrapperFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Demux_Table.h">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="PatientRequester.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Exercise4client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Connector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Service_Handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Reactor.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Select_Reactor_Implementation.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\Demux_Table.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\ConcreteReactor.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\INET_Address.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Acceptor.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_Connector.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\SOCK_stream.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="X:\Skoleting\TIARDI\ARDI\Exercises\Exercise4-Connector\Exercise 4\winsockHandling.cpp">
+      <Filter>Source Files\WrapperFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="PatientRequester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
