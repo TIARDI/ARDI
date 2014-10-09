@@ -12,11 +12,16 @@ public:
 	{
 	}
 
+	// Do some actions related to the thread pool
 	virtual void handle_event(HANDLE handle, Event_type eType)
 	{
+		// Deactivate to prevent race conditions, when promoting a new leader
 		thread_pool_->deactivate_handle(handle, eType);
+
+		// Promote a new leader
 		thread_pool_->promote_new_leader();
 
+		// Do the work is actually has to do
 		concrete_event_handler_->handle_event(handle, eType);
 
 		thread_pool_->reactivate_handle(handle, eType);

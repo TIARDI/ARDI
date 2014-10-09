@@ -13,6 +13,7 @@ void LF_Thread_Pool::join(int timeout)
 			followers_condition_.wait(lock);
 		}
 
+		// Set the current thread as leader
 		leader_thread_ = std::this_thread::get_id();
 
 		lock.unlock();
@@ -27,12 +28,14 @@ void LF_Thread_Pool::promote_new_leader()
 {
 	std::unique_lock<std::mutex> lock(mutex_);
 
+	// Throw exception. Only the leader can promote 
 	if (leader_thread_ != std::this_thread::get_id())
 		throw std::runtime_error("Only leader thread can promote.");
 
 	leader_thread_ = INVALID_THREAD_ID;
 
-	followers_condition_.notify_one();
+	// notify a join method to promote a new leader
+	followers_condition_.notify_all();
 }
 
 void LF_Thread_Pool::deactivate_handle(HANDLE handle, Event_type eType)
@@ -45,6 +48,7 @@ void LF_Thread_Pool::reactivate_handle(HANDLE handle, Event_type eType)
 	reactor_->reactivate_handle(handle, eType);
 }
 
+// Makes sure the Thread Pool is a singleton
 LF_Thread_Pool* LF_Thread_Pool::Instance()
 {
 	static LF_Thread_Pool tp;
