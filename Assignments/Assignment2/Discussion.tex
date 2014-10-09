@@ -9,6 +9,16 @@ The main tasks of this exercise was to implement the acceptor/connector pattern,
 
 \section*{Leader/followers}
 
-For this implementation the reactor was chosen as event demultiplexer. The basic implementation used in the previous exercises was not required to be threadsafe, and handle deactivation and reactivation of handles. Supporting this required implementation of synchronization, and handling the case where no handle is currently active. When handles are reactivated, these are not being listened to by the current leader, which presents a problem if \code{handle\_events()} is called without timeout. This was handled by introducing a timeout on \code{select()}, but this approach may increase the latency of the server. 
+For this implementation the reactor was chosen as event demultiplexer. The basic implementation used in the previous exercises was not required to be threadsafe, and handle deactivation and reactivation of handles. Supporting this required implementation of synchronization, and handling the case where no handle is currently active. When handles are reactivated, these are not being listened to by the current leader, which presents a problem if \code{handle\_events()} is called without timeout. This was handled by introducing a timeout on \code{select()}, but this approach may increase the latency of the server.\\
+When working the multithreaded applications, will there always be some overhead regarding management of threads.
+No matter what concurrency pattern you use, will there always be an overhead, but this is negligible when performance is compared to multiple threads.\\
+Also when working with multiple threads, will there arise some problems concerning debugging of the application, because the application behaves differently every time it is run, and differently on another machine.
+
+\section*{Acceptor/Connector}
+The main part of this was already implemented with the Wrapper Facade, but the acceptor have undergone some changes.\\
+Before we would implement a Acceptor Event for each type incoming event, and then register with the Reactor.
+In the new version it has been modified with templates and is now responsible for accepting new connection, creating the matching Event Handler and at last registering it with the Reactor.\\
+This makes it much easier to reuse in other projects, and keeps a low coupling between the acceptor code and the main application.\\
+The connector ..
 
 \end{document}
