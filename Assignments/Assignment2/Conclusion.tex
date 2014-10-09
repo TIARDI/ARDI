@@ -4,5 +4,26 @@
 \begin{document}
 
 \chapter{Conclusion}
-
+Our finished product is a PC client and server console application with the following contents. As this project builds upon our project in assignment 1, the parts that overlap will not be mentioned.
+\begin{itemize}
+\item Server
+	\begin{itemize}
+		\item Made asynchronous using the leader/follower pattern
+		\item Reactor improved to handle asynchronous calls, i.e. able to deactivate and reactive handlers
+		\begin{itemize}
+				\item A locking mechanism was put in place for concurrency
+				\item Promotion mechanism for electing new leaders
+				\item Leader/Follower event handler to wrap all other event handlers.
+		\end{itemize}
+		\item Server part of an acceptor/connector pattern, i.e. the acceptor part. 
+		\item Service handlers are templated in acceptor, so that an acceptor for each service should be created.
+	\end{itemize}
+\item Client
+	\begin{itemize}
+		\item Server part of an acceptor/connector pattern, i.e. the connector part.
+		\item Connector made fully synchronous, i.e. all behaviour not needed i a synchronous enviroment were removed.
+	    \item Service handlers are templated in connector, so that a connector for each service should be created.
+	\end{itemize}
+\end{itemize}
+We have done a small bit of extra-work on this assignement, meaning we have chosen to only implement a synchronous connector, and made some creative decision on the concurrency of the leader/follower pattern (i.e. sleeps to make sure that threads are ready).
 \end{document}
