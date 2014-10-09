@@ -4,7 +4,11 @@
 \begin{document}
 
 \section{General implementation details}\label{sec:generalImpDetails}
+\subsection*{Sleep in client}
+When the client writes to the server to access values based on a cpr number, the server can't answer fast enough for the client not to go into a write event (Where the client queries the user for a cpr number). In the write event, the client tries to read the users input, and is therefore stuck in a blocking call to std::cin. This means that when the server does answer the client with the details of that CPR-number, the read event will not be handled before the write event have finished. This happens because of delays through TCP/IP. It was therefore decided that a small delay should be introduced, so that a read event would occur directly after a write event.
 
+\subsection*{Fully synchronous connector}
+We only have one outgoing connection per program for the client, which means that we have implemented the connector as being fully synchronous. Normally, when the connection have been established an event will occur, where you would then handle the writing or reading. We do it completely sequential, so that when the client connects, it waits until it have connected.
 
 
 
