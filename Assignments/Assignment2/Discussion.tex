@@ -5,6 +5,10 @@
 
 \chapter{Discussion of results}
 
+The main tasks of this exercise was to implement the acceptor/connector pattern, and extend the server to use a concurrent dispatch pattern. These will be discussed in this section.
 
+\section*{Leader/followers}
+
+For this implementation the reactor was chosen as event demultiplexer. The basic implementation used in the previous exercises was not required to be threadsafe, and handle deactivation and reactivation of handles. Supporting this required implementation of synchronization, and handling the case where no handle is currently active. When handles are reactivated, these are not being listened to by the current leader, which presents a problem if \code{handle\_events()} is called without timeout. This was handled by introducing a timeout on \code{select()}, but this approach may increase the latency of the server. 
 
 \end{document}
