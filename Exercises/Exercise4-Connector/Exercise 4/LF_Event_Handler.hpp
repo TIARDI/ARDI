@@ -10,7 +10,6 @@ public:
 
 	~LF_Event_Handler()
 	{
-		delete concrete_event_handler_;
 	}
 
 	virtual void handle_event(HANDLE handle, Event_type eType)
@@ -20,7 +19,7 @@ public:
 
 		concrete_event_handler_->handle_event(handle, eType);
 
-		thread_pool_->reactivate_handler(handle, eType);
+		thread_pool_->reactivate_handle(handle, eType);
 	}
 
 	HANDLE get_handle() const

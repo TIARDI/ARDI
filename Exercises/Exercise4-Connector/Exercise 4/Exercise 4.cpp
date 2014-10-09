@@ -17,7 +17,7 @@ void worker_function(LF_Thread_Pool *tp)
 		tp->join();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	INET_Address patientAddr(PATIENT_PORT, INADDR_ANY);
 

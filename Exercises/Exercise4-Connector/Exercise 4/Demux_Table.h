@@ -13,6 +13,6 @@ struct EventHandlerTuple
 class Demux_Table : public std::map<HANDLE, EventHandlerTuple>
 {
 public:
-	void convert_to_fd_sets(fd_set *read_fds, fd_set *write_fds, fd_set *except_fds);
+	int convert_to_fd_sets(fd_set *read_fds, fd_set *write_fds, fd_set *except_fds);
 };
 

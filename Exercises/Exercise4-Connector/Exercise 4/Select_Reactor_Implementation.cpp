@@ -33,7 +33,7 @@ void Select_Reactor_Implementation::register_handler(Event_Handler *eh, Event_ty
 
 void Select_Reactor_Implementation::remove_handler(Event_Handler *eh, Event_type et)
 {
-	(void)et; //unused function
+	(void)et; //unused variable
 
 	auto mapItr = demuxTable.find(eh->get_handle());
 	if (mapItr != demuxTable.end())
@@ -44,11 +44,32 @@ void Select_Reactor_Implementation::remove_handler(Event_Handler *eh, Event_type
 	}
 }
 
-void Select_Reactor_Implementation::handle_events(const timeval *timeout)
+void Select_Reactor_Implementation::deactivate_handle(HANDLE handle, Event_type et)
+{
+	auto mapItr = demuxTable.find(handle);
+	if (mapItr != demuxTable.end())
+	{
+		mapItr->second.type = (Event_type)(mapItr->second.type & ~et); 
+	}
+}
+
+void Select_Reactor_Implementation::reactivate_handle(HANDLE handle, Event_type et)
+{
+	auto mapItr = demuxTable.find(handle);
+	if (mapItr != demuxTable.end())
+	{
+		mapItr->second.type = (Event_type)(mapItr->second.type | et); 
+	}
+}
+
+void Select_Reactor_Implementation::handle_events(bool onlyOneEvent, const timeval *timeout)
 {
 	fd_set read_set, write_set, except_set;
 
-	demuxTable.convert_to_fd_sets(&read_set, &write_set, &except_set);
+	auto fds = demuxTable.convert_to_fd_sets(&read_set, &write_set, &except_set);
+	
+	if(fds == 0)
+		return;
 
 	auto ret = ::select(0, &read_set, &write_set, &except_set, timeout);
 	std::map<HANDLE, EventHandlerTuple> iterTable(demuxTable);
@@ -70,21 +91,30 @@ void Select_Reactor_Implementation::handle_events(const timeval *timeout)
 	}
 	else
 	{
+		bool handledEvent = false;
 		for (auto handlerKvp : iterTable)
 		{
 			if (FD_ISSET((SOCKET)handlerKvp.first, &read_set))
 			{
 				handlerKvp.second.handler->handle_event(handlerKvp.first, READ);
+				handledEvent = true;
 			}
 
 			if( FD_ISSET((SOCKET)handlerKvp.first, &write_set))
 			{
 				handlerKvp.second.handler->handle_event(handlerKvp.first, WRITE);
+				handledEvent = true;
 			}
 
 			if( FD_ISSET((SOCKET)handlerKvp.first, &except_set))
 			{
 				handlerKvp.second.handler->handle_event(handlerKvp.first, EXCEPT);
+				handledEvent = true;
+			}
+
+			if(onlyOneEvent && handledEvent)
+			{
+				break;
 			}
 		}
 	}

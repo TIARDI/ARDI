@@ -16,8 +16,13 @@ public:
 
 		// register with <reactor>
 
-		LF_Event_Handler* lf_Eh = new LF_Event_Handler(this, LF_Thread_Pool::Instance());
-		r->register_handler(lf_Eh, ACCEPT);
+		lf_eh = new LF_Event_Handler(this, LF_Thread_Pool::Instance());
+		r->register_handler(lf_eh, ACCEPT);
+	}
+
+	virtual ~Acceptor()
+	{
+		delete lf_eh;
 	}
 
 	virtual void handle_event(HANDLE h, Event_type et)
@@ -63,4 +68,5 @@ protected:
 	}
 private:
 	SOCK_Acceptor peer_acceptor_; // template placeholder
+	LF_Event_Handler* lf_eh;
 };
