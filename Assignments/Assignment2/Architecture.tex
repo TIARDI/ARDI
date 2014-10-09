@@ -11,7 +11,6 @@ With this configuration all the connection will be as easy as possible for the c
 By using the TCP/IP-protocol, the client do not need anything special to establish a connection since this is standard for all platforms.
 This also means that the server must apply to the TCP/IP-protocol and other clients will be able to communicate with it through a given port.
 
-
 The server will be using different patterns from the TIARDI lessons:
 \begin{itemize}
 	\item Acceptor/Connector
@@ -22,11 +21,10 @@ The server will be using different patterns from the TIARDI lessons:
 \end{itemize}
 
 The Wrapper Facade pattern from Exercise 1 is still used independently.
-The Reactor, as well from Exercise 1, can be used separately with the wrapper has been applied to the functions. 
+The Reactor, as well from Exercise 1, has been modified to fit this the leader/followers pattern. This involves adding methods to de- and activate handles, along with synchronization of access to the demux table. Furthermore it has been ensured, that the reactor only handles one function per invokation of \code{handle\_events()} as is required by the leader/followers pattern.  
 The Acceptor/Connector is very closely linked to the Reactor and will be very difficult to use without it.
 The Template pattern allows multiple classes to be implemented in another class.
 The Leader/follower allows threads to handle thread concurrently.
-
 
 Building Exercise 4 was done in Windows, since it only was build in Microsoft's Visual Studio.	
 
