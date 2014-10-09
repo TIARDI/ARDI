@@ -16,4 +16,7 @@ The Connector registers the services on the client side, so that when a new conn
 \subsection*{Leader/Follower}
 The Leader/Follower pattern handles the multi-threading of the server. The concept deals with a thread queue, and three different states; Leader, Follower and Processing. In the thread pool, a single thread is the leader, and the one that will handle incoming events. When an incoming event comes along, the leader thread takes it, elects a new leader and processes the event. If another event comes along, while the old leader processes the previous event, the new leader handles that event and elects a new leader and so on. When a processing thread is done, it checks to see if anyone is leader. If there is, then it becomes a follower, otherwise it becomes a leader.
 
+\subsection*{Template}
+This GoF pattern is used in the solution to make the concrete service handler abstract. It is used in combination with the acceptor and connector, to declare what type of concrete service handler should be handled by that specific acceptor or connector.
+
 \end{document}
