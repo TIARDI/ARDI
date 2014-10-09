@@ -46,6 +46,7 @@ void Select_Reactor_Implementation::remove_handler(Event_Handler *eh, Event_type
 
 void Select_Reactor_Implementation::deactivate_handle(HANDLE handle, Event_type et)
 {
+	std::unique_lock<std::mutex> lock(tablemutex_);
 	auto mapItr = demuxTable.find(handle);
 	if (mapItr != demuxTable.end())
 	{
@@ -55,10 +56,12 @@ void Select_Reactor_Implementation::deactivate_handle(HANDLE handle, Event_type 
 
 void Select_Reactor_Implementation::reactivate_handle(HANDLE handle, Event_type et)
 {
+	std::unique_lock<std::mutex> lock(tablemutex_);
 	auto mapItr = demuxTable.find(handle);
 	if (mapItr != demuxTable.end())
 	{
-		mapItr->second.type = (Event_type)(mapItr->second.type | et); 
+		mapItr->second.type = (Event_type)(mapItr->second.type | et);
+		handleready_condition_.notify_all();
 	}
 }
 
@@ -66,13 +69,15 @@ void Select_Reactor_Implementation::handle_events(bool onlyOneEvent, const timev
 {
 	fd_set read_set, write_set, except_set;
 
-	auto fds = demuxTable.convert_to_fd_sets(&read_set, &write_set, &except_set);
-	
-	if(fds == 0)
-		return;
+	std::unique_lock<std::mutex> lock(tablemutex_);
+
+	while (demuxTable.convert_to_fd_sets(&read_set, &write_set, &except_set) < 1)
+		handleready_condition_.wait(lock);
 
 	auto ret = ::select(0, &read_set, &write_set, &except_set, timeout);
 	std::map<HANDLE, EventHandlerTuple> iterTable(demuxTable);
+
+	lock.unlock();
 
 	if (ret == SOCKET_ERROR)
 	{

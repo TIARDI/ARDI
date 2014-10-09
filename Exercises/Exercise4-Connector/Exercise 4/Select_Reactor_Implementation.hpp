@@ -1,6 +1,8 @@
 #pragma once
 #include "Reactor_Implementation.hpp"
 #include "Demux_Table.h"
+#include <mutex>
+#include <condition_variable>
 
 class Select_Reactor_Implementation : public Reactor_Implementation
 {
@@ -17,5 +19,7 @@ public:
 
 private:
 	Demux_Table demuxTable;
+	std::mutex tablemutex_;
+	std::condition_variable handleready_condition_;
 };
 
