@@ -19,6 +19,6 @@ The main part of this was already implemented with the Wrapper Facade, but the a
 Before we would implement a Acceptor Event for each type incoming event, and then register with the Reactor.
 In the new version it has been modified with templates and is now responsible for accepting new connection, creating the matching Event Handler and at last registering it with the Reactor.\\
 This makes it much easier to reuse in other projects, and keeps a low coupling between the acceptor code and the main application.\\
-The connector ..
+As mentioned, only the synchronous functionality of the connector was implemented, which greatly simplified implementation. 
 
 \end{document}
