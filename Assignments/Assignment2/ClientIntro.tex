@@ -5,6 +5,9 @@
 
 \subsection{Intro to design of client}
 
+The client is designed to use the acceptor/connector pattern but are limited to ask for CPR-numbers and receive the person's data.
+The client first connect to the server, sends a message and waits for a \code{WRITE}-event from the server.
+This process is repeated until canceled.
 
 
 
