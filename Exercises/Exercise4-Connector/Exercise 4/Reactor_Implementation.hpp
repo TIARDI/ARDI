@@ -10,7 +10,7 @@ public:
 	virtual void deactivate_handle(HANDLE handle, Event_type eType) = 0;
 	virtual void reactivate_handle(HANDLE handle, Event_type eType) = 0;
 
-	virtual void handle_events(bool onlyOneEvent = false, const timeval *timeout = 0) = 0;
+	virtual bool handle_events(bool onlyOneEvent = false, const timeval *timeout = 0) = 0;
 
 	virtual ~Reactor_Implementation(){}
 };

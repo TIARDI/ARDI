@@ -13,6 +13,9 @@ int Demux_Table::convert_to_fd_sets(fd_set *read_fds, fd_set *write_fds, fd_set 
 
 	for (const auto handleKvp : (*this))
 	{
+		if (!handleKvp.second.is_active)
+			continue;
+
 		if (handleKvp.second.type & READ || handleKvp.second.type & ACCEPT)
 		{
 			FD_SET((SOCKET)handleKvp.first, read_fds);

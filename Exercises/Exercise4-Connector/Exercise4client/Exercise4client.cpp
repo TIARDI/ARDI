@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 
 	connector.connect(&patientRequester, serverAddr);
 
-	std::chrono::milliseconds dura( 20 );
+	std::chrono::milliseconds dura( 50 );
 
 	while(running)
 	{

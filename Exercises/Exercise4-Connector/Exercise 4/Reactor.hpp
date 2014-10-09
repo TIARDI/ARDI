@@ -22,7 +22,7 @@ public:
 	virtual void reactivate_handle(HANDLE handle, Event_type eType) = 0;
 
 	// Entry point into the reactive event loop
-	virtual void handle_events(bool onlyOneEvent = false, const timeval *timeout = 0) = 0;
+	virtual bool handle_events(bool onlyOneEvent = false, const timeval *timeout = 0) = 0;
 	
 	// Define a singleton access point (GoF pattern)
 	static Reactor *instance();

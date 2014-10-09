@@ -32,7 +32,7 @@ void ConcreteReactor::reactivate_handle(HANDLE handle, Event_type eType)
 	reactor_impl_->reactivate_handle(handle, eType);
 }
 
-void ConcreteReactor::handle_events(bool onlyOneEvent, const timeval *timeout)
+bool ConcreteReactor::handle_events(bool onlyOneEvent, const timeval *timeout)
 {
-	reactor_impl_->handle_events(onlyOneEvent, timeout);
+	return reactor_impl_->handle_events(onlyOneEvent, timeout);
 }

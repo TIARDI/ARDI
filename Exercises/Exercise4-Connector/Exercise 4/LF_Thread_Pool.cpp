@@ -18,7 +18,17 @@ void LF_Thread_Pool::join(int timeout)
 
 		lock.unlock();
 
-		reactor_->handle_events(true); //only handle a single event
+		bool handledEvents = false;
+		while (!handledEvents)
+		{
+			static timeval timeout = 
+			{
+				0, //seconds
+				10*1000 //us = 20ms
+			};
+			handledEvents = reactor_->handle_events(true, &timeout); //only handle a single event
+		}
+
 
 		lock.lock();
 	}
@@ -35,7 +45,7 @@ void LF_Thread_Pool::promote_new_leader()
 	leader_thread_ = INVALID_THREAD_ID;
 
 	// notify a join method to promote a new leader
-	followers_condition_.notify_all();
+	followers_condition_.notify_one();
 }
 
 void LF_Thread_Pool::deactivate_handle(HANDLE handle, Event_type eType)

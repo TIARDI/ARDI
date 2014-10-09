@@ -15,7 +15,7 @@ public:
 	virtual void deactivate_handle(HANDLE handle, Event_type eType);
 	virtual void reactivate_handle(HANDLE handle, Event_type eType);
 
-	virtual void handle_events(bool onlyOneEvent, const timeval *timeout);
+	virtual bool handle_events(bool onlyOneEvent, const timeval *timeout);
 
 private:
 	Demux_Table demuxTable;

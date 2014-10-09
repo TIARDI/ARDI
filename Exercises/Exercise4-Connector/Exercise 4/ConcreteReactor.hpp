@@ -12,6 +12,6 @@ public:
 	virtual void reactivate_handle(HANDLE handle, Event_type eType);
 
 	// Entry point into the reactive event loop
-	virtual void handle_events(bool onlyOneEvent, const timeval *timeout);
+	virtual bool handle_events(bool onlyOneEvent, const timeval *timeout);
 };
 

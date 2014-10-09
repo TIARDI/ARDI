@@ -8,6 +8,7 @@ struct EventHandlerTuple
 {
 	Event_Handler* handler;
 	Event_type type;
+	bool is_active;
 };
 
 class Demux_Table : public std::map<HANDLE, EventHandlerTuple>

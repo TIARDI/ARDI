@@ -10,7 +10,7 @@ typedef Acceptor<Patient_Handler> Patient_Acceptor;
 
 #define PATIENT_PORT 2003
 
-const int MAX_THREADS = 3;
+const int MAX_THREADS = 20;
 
 void worker_function(LF_Thread_Pool *tp)
 {
